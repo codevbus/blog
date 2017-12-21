@@ -55,7 +55,6 @@ help:
 	@echo '   make ftp_upload                     upload the web site via FTP        '
 	@echo '   make s3_upload                      upload the web site via S3         '
 	@echo '   make cf_upload                      upload the web site via Cloud Files'
-	@echo '   make aws                            upload to aws instances            '
 	@echo '   make github                         upload the web site via gh-pages   '
 	@echo '                                                                          '
 	@echo 'Set the DEBUG variable to 1 to enable debugging, e.g. make DEBUG=1 html   '
@@ -99,18 +98,6 @@ stopserver:
 
 publish:
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
-
-github-create:
-	[ ! -d $(OUTPUTDIR) ] || rm -rf $(OUTPUTDIR)
-$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(GITHUBPUBLISHCONF) $(PELICANOPTS)
-
-aws-create:
-	[ ! -d $(OUTPUTDIR) ] || rm -rf $(OUTPUTDIR)
-	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(AWSPUBLISHCONF) $(PELICANOPTS)
-
-aws: aws-create
-	cd $(OUTPUTDIR)
-s3cmd sync $(OUTPUTDIR)/ s3://$(S3_BUCKET) --exclude 'log/*' --exclude 'status.html' --acl-public --delete-removed --guess-mime-type -v
 
 ssh_upload: publish
 	scp -P $(SSH_PORT) -r $(OUTPUTDIR)/* $(SSH_USER)@$(SSH_HOST):$(SSH_TARGET_DIR)
