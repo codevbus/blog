@@ -10,22 +10,21 @@ install:
 script:
 - git clone https://github.com/alexandrevicenzi/Flex.git
 - pelican-themes -vi Flex
-- make html
+- pelican content
 - python test_blog.py
-deploy:
-  provider: s3
-  access_key_id: $ACCESS_KEY_ID
-  secret_key_id: $SECRET_KEY_ID
-  bucket: sysengcooking.com
-  endpoint: sysengcooking.com.s3-website.us-east-2.amazonaws.com
-  region: us-east-2
-  skip_cleanup: true
-  local-dir: output
-  acl: public_read
-  detect_encoding: true
-after_deploy:
-- aws configure set preview.cloudfront true
-- aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_ID
 notifications:
   email:
     on_failure: always
+deploy:
+  provider: s3
+  access_key_id:
+    secure: T3hOrZpq+qhMz/3/J7sLWei0A27vYEbGRxs73q2si9io2iXBA8iJ5DMaw9ElWiOiYXNHbI26QEqmWpLwMpkwjXLGhAyoT9jHbwG3AKxj6a102fi60HjBobl95AnAb+W/dG6EJvktsv2lf+mwxsUJq942vQY9Xuu7V1zCP/QozQ6CR4N2fzCo7LkzvKQBRtwlHgCaMTbBMp7//5PjXWT+AZKOfTjb5sFHMJgH6rEXOnM5vY32DRDn5RVbknUjwOq9JtjJUWZkJV4bH3/5lpKRGsEJrVSSrrqKqXC4yTx9azaQjnVZIw3CcF9A3wtFr4BAO68FOzdkO5+3zaHZQGE8AF6nG02Qd1Kw4OjNIy8Bs2khuCYx+BHUwVkWhjc6fULA3hhLIojjNlwIKsOrClyx5TZUNWlsMVKSO22pPw2hWFM+ReRxeTi/lfag2op1KYL3qaEioejVlvgJSCJ9WVISKhbpV8nULoL/l/OqciPeXvs5O7+vJaOK+JKs02eXMfjeDvhwQTVv/PEXSBCSa8MV81Q6ax2QMgChFhH0/zmciYhugK/HL6RtW0D7EXvSJXW7vpdXSOSd5UA8J6wA6aiP8vsR9fdkdmm21KbIX9bsDP9zdIDjsxxIn4mZVPMNwtk5z7rOntZ4NygvQI209fkp2upuzJlGhI60B5B6/L3Aosw=
+  secret_access_key:
+    secure: bZyZe6jX5FnrxRSsCkJXyHXLMrK4egw8zhyYp9+ERGjupzkJLEJxGjzTbEAd6Ya3lys9FeF85bsXm4vdIzWhHgpfYKBJIGZYtUMEFWh+Grnerei3/CiMjdYnwPiPWItundysNeNiBHHILrhq7PSfxvydkUKxrNS0vp/RFfR1sbUI35KsB2W/5auDziUdxH3SAfRpDr08YbISKeT/xSngqM9HwxWxim8cRj7lItBf3hdx11QPGkcHdl8dtpFODcviCISzj5jEU2gKakOj/KmCMXpCWaP4S7fnKG4Vv6zjIDg6ZT6PsFl9PbKxb+fNgfVCROFAwwn0RDOgLRZSjS25lps5gTJGFX4I1DOGhdujwCWqtfa6WryFKV/YdL9Mzrf1zwEBvJg1yfXfzP1WiOTx1EBseommDx28OTsbiejf5p6h1Oyl2HOkWqRa5GxPsitA8A1N7CfIP8XFCnN3PmVL7KYDTacwGnrMGChwXUX39fx5vMbUV3PfqaEPwdE667dHdkik4xaZtGWjUtKF9SKTd3p/FTmsIsrxsmPXvO5rbABDAj9UmbUeEZOvux2mD8JCXTH9ebUXFSn6wqAvBfTJAdYOjqqkThB7NSAnhyvaw4BDE0GdhaZfCIZHwvOOsncKCPMP2EjKpRoiHIc8YVpakcTOeYq8Ji74k6Ra7nfbOFI=
+  bucket: sysengcooking.com
+  acl: public_read
+  on:
+    repo: codevbus/blog
+after_deploy:
+- aws configure set preview.cloudfront true
+- aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_ID
