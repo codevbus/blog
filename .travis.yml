@@ -10,7 +10,10 @@ install:
 script:
 - git clone https://github.com/alexandrevicenzi/Flex.git
 - pelican-themes -vi Flex
-- pelican content
+- make clean
+- make github-travis
+- make clean
+- make aws-create
 - python test_blog.py
 notifications:
   email:
