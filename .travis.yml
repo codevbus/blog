@@ -8,10 +8,25 @@ branches:
 install:
 - pip install -r requirements.txt
 script:
+- pelican /content
 - python test_blog.py
-- aws s3 sync output/ s3://sysengcooking.com --acl public-read --delete
+deploy:
+  provider: s3
+  access_key_id: $AWS_ACCESS_KEY
+  secret_key_id: $AWS_SECRET_KEY
+  bucket: sysengcooking.com
+  endpoint: sysengcooking.com.s3-website.us-east-2.amazonaws.com
+  region: us-east-2
+  skip_cleanup: true
+  local-dir: output
+  acl: public_read
+  detect_encoding: true
+after_deploy:
 - aws configure set preview.cloudfront true
 - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_ID
+notifications:
+  email:
+    on_failure: always
 env:
   global:
   - secure: kNV3HNAWGINZpphoDVm3gqrRNMHQ4jcRX43mDZC/929Hga1meAgbs8J11DeRiMB1gi1IwrALJmVJza1zhTLWebY/jtJFSToJUhB6V8SH6XAHqkrSnNls1+D9VIp3k7kyvoajs18QntW4bFgD+XEMLnjdF83boFp2U9pBK4bnL2n/RCl8JLB7HCFgrmSdT2ZP9QbUwjwu4Zcp7GT7kF9wrkfG+VL3x/YbwxqhiCna7BBlliYTAW8sKBR97+yfGqCo2whQLMQHvMvVDRvY/WVt/n3TNQIHZjtANVqnOdimXK9rET6QGWzyN/kzmF4TrY/E/vUTNbPoY855C6iPzFOYF8baxwXMa367jMsSeOmDJ4B2axwkhVw2GH3xkU9qTk5QWte9HCGavmXwwyzqNZCsdXU8nOsDhWSI1ryXQT/u4CBth8vzDyqrGjudroIwiyy4LP/504ne79Dt5MriWHkit0oEdvbf9b5uP7RVRCEAPPkjMJfPoedqHaHCD3j0QvEIck6enElAt3O3SQxzSMk8rrgAQrbU8kG0pB00QPp/pEkCwWj+ItsjZ8u5n/tJi/A9w03zaAOOzzOzu42FlUkRzA3zozoGMuUN40BJ0RyMzeQ1ngrsybTZIVXHsdFOiaUusESgf8FsE/TuGs/DGesF40Q7VjP7z1rMNU7kq6hJBzQ=
