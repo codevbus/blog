@@ -1,17 +1,2 @@
-body {
-    font-family: "Helvetica Neue","Open Sans",Helvetica,Arial,sans-serif;
-    font-size: 17px;
-    line-height: 1.7;
-}
-
-.navbar-brand {
-		font-size: 24px;
-}
-
-.nav {
-	  font-size: 15px;
-}
-
-#banner {
-	  padding: 100px 0;
-}
+.highlight { background-color: #f7f7f7 }
+.err { color: #008080; background-color: #f7f7f7 }

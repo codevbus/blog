@@ -5,5 +5,7 @@
 *.swp
 *.out
 *.py[cod]
+*.pid
 .cache
 output
+flex/

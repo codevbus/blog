@@ -1,41 +1,31 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
-import os
 
 AUTHOR = 'Mike Vanbuskirk'
 SITENAME = 'sysengcooking'
 SITEURL = 'http://localhost:8000'
+SITETITLE = AUTHOR
+SITESUBTITLE = 'devops recipes'
+SITELOGO = '/images/beach_jpg.jpg'
+BROWSER_COLOR = '#333'
+PYGMENTS_STYLE = 'github'
+
+ROBOTS = 'index, follow'
 
 PATH = 'content'
-
+THEME = "Flex"
 TIMEZONE = 'America/New_York'
-
 DEFAULT_LANG = 'en'
 
-THEME = os.path.join(os.environ.get('HOME'),'build/pelican-themes/pelican-bootstrap3')
-BOOTSTRAP_THEME = 'sandstone'
-BANNER = 'images/banner.jpg'
-BANNER_SUBTITLE = 'devops recipes'
+PLUGIN_PATHS = ['plugins']
 
-DISPLAY_CATEGORIES_ON_MENU = False
-DISPLAY_TAGS_ON_SIDEBAR = True
-
-
-PLUGIN_PATHS = [os.path.join(os.environ.get('HOME'),'build/pelican-plugins')]
-PLUGINS = ['i18n_subsites', ]
-JINJA_ENVIRONMENT = {
-    'extensions': ['jinja2.ext.i18n'],
+STATIC_PATHS = ['images', 'extra']
+EXTRA_PATH_METADATA = {
+    'extra/custom.css': {'path': 'static/custom.css'},
 }
 
 CUSTOM_CSS = 'static/custom.css'
-
-STATIC_PATHS = ['images', 'extra/custom.css']
-
-# Tell Pelican to change the path to 'static/custom.css' in the output dir
-EXTRA_PATH_METADATA = {
-    'extra/custom.css': {'path': 'static/custom.css'}
-}
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
@@ -48,18 +38,26 @@ GITHUB_USER = 'codevbus'
 GITHUB_SKIP_FORK = True
 GITHUB_REPO_COUNT = 2
 
+USE_FOLDER_AS_CATEGORY = False
+MAIN_MENU = False
+HOME_HIDE_TAGS = True
+
 # Blogroll
-LINKS = None
+LINKS = (('Archives', '/archives.html'),
+         ('Blog', '/blog.html'),
+         ('Categories', '/categories.html'),
+         ('Tags', '/tags.html'))
 
 # Social widget
 SOCIAL = (('linkedin', 'https://www.linkedin.com/in/mikevanbuskirk/'),
-          ('github', 'https://github.com/codevbus'),
-          ('quora', 'https://quora.com/profile/Mike-Vanbuskirk'))
+          ('github', 'https://github.com/codevbus'))
 
-DEFAULT_PAGINATION = 5
+COPYRIGHT_YEAR = 2017
+
+DEFAULT_PAGINATION = 10
 
 # Uncomment following line if you want document-relative URLs when developing
-#RELATIVE_URLS = True
+# RELATIVE_URLS = True
 
 ARTICLE_URL = 'blog/{slug}.html'
 ARTICLE_SAVE_AS = 'blog/{slug}.html'
