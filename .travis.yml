@@ -11,6 +11,7 @@ script:
 - git clone https://github.com/alexandrevicenzi/Flex.git
 - pelican-themes -vi Flex
 - make clean
+- pelican content
 - python test_blog.py
 notifications:
   email:
