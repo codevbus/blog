@@ -1,26 +1,23 @@
 language: python
 python:
-- '3.6'
+  - '3.6'
 cache: pip
 branches:
   only:
   - master
 install:
-- pip install -r requirements.txt
+  - pip install -r requirements.txt
 script:
-- git clone https://github.com/alexandrevicenzi/Flex.git
-- pelican-themes -vi Flex
-- make clean
-- python test_blog.py
-notifications:
-  email:
-    on_failure: always
+  - git clone https://github.com/alexandrevicenzi/Flex.git
+  - pelican-themes -vi Flex
+  - make clean
+  - python test_blog.py
+before_deploy: "rm -rf Flex/ README.md fabfile.py pelicanconf.py publishconf.py test_blog.py requirements.txt Makefile develop_server.sh"
 deploy:
   provider: s3
   bucket: sysengcooking.com
   endpoint: sysengcooking.com.s3-website.us-east-2.amazonaws.com
   acl: public_read
-  local_dir: /home/travis/build/codevbus/blog/output
   region: us-east-2
   on:
     repo: codevbus/blog
@@ -31,3 +28,6 @@ deploy:
 after_deploy:
 - aws configure set preview.cloudfront true
 - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_ID
+notifications:
+  email:
+    on_failure: always
