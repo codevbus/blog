@@ -8,15 +8,14 @@ branches:
 install:
 - pip install -r requirements.txt
 script:
-- ls
 - git clone https://github.com/alexandrevicenzi/Flex.git
 - pelican-themes -vi Flex
-- pelican content
+- make html
 - python test_blog.py
 deploy:
   provider: s3
-  access_key_id: $AWS_ACCESS_KEY
-  secret_key_id: $AWS_SECRET_KEY
+  access_key_id: $ACCESS_KEY_ID
+  secret_key_id: $SECRET_KEY_ID
   bucket: sysengcooking.com
   endpoint: sysengcooking.com.s3-website.us-east-2.amazonaws.com
   region: us-east-2
