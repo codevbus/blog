@@ -20,6 +20,7 @@ deploy:
   bucket: sysengcooking.com
   endpoint: sysengcooking.com.s3-website.us-east-2.amazonaws.com
   acl: public_read
+  local_dir: output
   region: us-east-2
   on:
     repo: codevbus/blog
