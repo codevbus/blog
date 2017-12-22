@@ -22,6 +22,7 @@ deploy:
   bucket: sysengcooking.com
   skip_cleanup: true
   local_dir: ./output
+  region: us-east-2
 after_deploy:
 - aws configure set preview.cloudfront true
 - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_ID --paths "/*"
