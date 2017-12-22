@@ -13,16 +13,15 @@ script:
 - make clean
 - make html
 - python test_blog.py
-before_deploy: 
+before_deploy:
 - rm -rf content/ Flex/ README.md fabfile.py pelicanconf.py publishconf.py test_blog.py requirements.txt Makefile develop_server.sh
-- ls
 deploy:
   on:
     branch: master
   provider: s3
   bucket: sysengcooking.com
   skip_cleanup: true
-  local_dir: blog/output
+  local_dir: ./output
 after_deploy:
 - aws configure set preview.cloudfront true
 - aws cloudfront create-invalidation --distribution-id $CLOUDFRONT_ID --paths "/*"
