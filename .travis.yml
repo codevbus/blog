@@ -13,8 +13,9 @@ script:
 - make clean
 - make html
 - python test_blog.py
-before_deploy: rm -rf content/ Flex/ README.md fabfile.py pelicanconf.py publishconf.py
-  test_blog.py requirements.txt Makefile develop_server.sh
+before_deploy: 
+- rm -rf content/ Flex/ README.md fabfile.py pelicanconf.py publishconf.py test_blog.py requirements.txt Makefile develop_server.sh
+- ls
 deploy:
   on:
     branch: master
