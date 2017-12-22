@@ -11,7 +11,7 @@ script:
 - git clone https://github.com/alexandrevicenzi/Flex.git
 - pelican-themes -vi Flex
 - make clean
-- make html
+- make publish
 - python test_blog.py
 before_deploy:
 - rm -rf content/ Flex/ README.md fabfile.py pelicanconf.py publishconf.py test_blog.py requirements.txt Makefile develop_server.sh
