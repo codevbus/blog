@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 AUTHOR = 'Mike Vanbuskirk'
 SITENAME = 'sysengcooking'
-SITEURL = 'http://localhost:8000'
+SITEURL = 'http://192.168.0.107:8000'
 SITETITLE = AUTHOR
 SITESUBTITLE = 'devops recipes'
 SITELOGO = '/images/beach_jpg.jpg'
@@ -45,15 +45,15 @@ HOME_HIDE_TAGS = True
 
 # Blogroll
 LINKS = (('Archives', '/archives.html'),
-         ('Blog', '/blog.html'),
          ('Categories', '/categories.html'),
+         ('Home', '/'),
          ('Tags', '/tags.html'))
 
 # Social widget
 SOCIAL = (('linkedin', 'https://www.linkedin.com/in/mikevanbuskirk/'),
           ('github', 'https://github.com/codevbus'))
 
-COPYRIGHT_YEAR = 2017
+COPYRIGHT_YEAR = 2018
 
 DEFAULT_PAGINATION = 10
 

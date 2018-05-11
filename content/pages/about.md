@@ -9,3 +9,6 @@ Terraform, Cloudformation, Lambda, Consul, Docker, and Kubernetes.
 
 Fun things for me: photography, playing with our cats, cooking, gardening, small electronics
 tinkering, drones, and learning new programming languages.
+
+The opinions, views, thoughts, musings, and poor attempts humor expressed on this site are wholly my
+own, and not that of my employer.
