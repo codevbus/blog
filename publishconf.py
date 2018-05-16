@@ -20,7 +20,7 @@ DELETE_OUTPUT_DIRECTORY = True
 
 # Following items are often useful when publishing
 
-#DISQUS_SITENAME = ""
+DISQUS_SITENAME = "sysengcooking"
 GOOGLE_ANALYTICS = "UA-112057976-1"
 
 ARTICLE_URL = 'blog/{slug}.html'
