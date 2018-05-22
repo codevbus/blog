@@ -46,7 +46,6 @@ HOME_HIDE_TAGS = True
 # Blogroll
 LINKS = (('Archives', '/archives.html'),
          ('Categories', '/categories.html'),
-         ('Home', '/'),
          ('Tags', '/tags.html'))
 
 # Social widget
