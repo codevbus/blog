@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 AUTHOR = 'Mike Vanbuskirk'
 SITENAME = 'sysengcooking'
-SITEURL = 'http:/localhost:8000'
+SITEURL = 'http://localhost:8000'
 SITETITLE = AUTHOR
 SITESUBTITLE = 'devops recipes'
 SITELOGO = '/images/beach_jpg.jpg'
@@ -42,6 +42,7 @@ GITHUB_REPO_COUNT = 2
 USE_FOLDER_AS_CATEGORY = False
 MAIN_MENU = False
 HOME_HIDE_TAGS = True
+DISABLE_URL_HASH = True
 
 # Blogroll
 LINKS = (('Archives', '/archives.html'),
