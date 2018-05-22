@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 AUTHOR = 'Mike Vanbuskirk'
 SITENAME = 'sysengcooking'
-SITEURL = 'http://localhost:8000'
+SITEURL = 'http:/localhost:8000'
 SITETITLE = AUTHOR
 SITESUBTITLE = 'devops recipes'
 SITELOGO = '/images/beach_jpg.jpg'
@@ -59,10 +59,10 @@ DEFAULT_PAGINATION = 10
 # Uncomment following line if you want document-relative URLs when developing
 # RELATIVE_URLS = True
 
-ARTICLE_URL = 'blog/{slug}.html'
-ARTICLE_SAVE_AS = 'blog/{slug}.html'
-PAGE_URL = '{slug}.html'
-PAGE_SAVE_AS = '{slug}.html'
-TAG_URL = 'tags/{slug}.html'
-TAG_SAVE_AS = 'tags/{slug}.html'
+ARTICLE_URL = 'blog/{slug}/'
+ARTICLE_SAVE_AS = 'blog/{slug}/index.html'
+PAGE_URL = '{slug}/'
+PAGE_SAVE_AS = '{slug}/index.html'
+TAG_URL = 'tags/{slug}/'
+TAG_SAVE_AS = 'tags/{slug}/index.html'
 TAGS_URL = 'tags.html'
