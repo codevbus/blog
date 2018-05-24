@@ -27,6 +27,9 @@ This series is going to assume some basic knowledge around topics like AWS, and 
 Ideally, the reader has a few AWS Lambda functions under their belt already, and
 is looking for a more streamlined and automated way to deploy them.
 
+It's also assumed there is some basic familiarity and experience with version control systems,
+specifically Git/Github in this case.
+
 This workflow was performed on a Macbook Pro running OSX 10.12(Sierra). Installation of tools for
 different platforms such as Linux or Windows may vary slightly.
 
