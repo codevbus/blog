@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 AUTHOR = 'Mike Vanbuskirk'
 SITENAME = 'sysengcooking'
-SITEURL = 'http://localhost:8000'
+SITEURL = 'http:/localhost:8000'
 SITETITLE = AUTHOR
 SITESUBTITLE = 'devops recipes'
 SITELOGO = '/images/beach_jpg.jpg'
