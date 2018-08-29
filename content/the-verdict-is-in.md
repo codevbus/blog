@@ -10,7 +10,7 @@ Remote work is dead. Remote work is not dead. Wait, no it's dead again. No wait 
 it's totally awesome. It seems the techo-literistas have swung back and forth between pronouncing
 the death of remote work, and singing its praises. Well the verdict is in. Remote work... works.
 An Inc article published last month:
-https://www.inc.com/scott-mautz/a-2-year-stanford-study-shows-astonishing-productivity-boost-of-working-from-home.html
+<https://www.inc.com/scott-mautz/a-2-year-stanford-study-shows-astonishing-productivity-boost-of-working-from-home.html>
 discusses a study done by a Stanford professor, which shows non-trivial boosts to productivity, and
 a reduction in employee attrition.
 
