@@ -1,12 +1,11 @@
-title: deploy aws lambda functions with aws-sam-cli and travis-ci: part 2
-Date: 2018-06-08
-Category: Serverless
-Tags: devops, serverless, travis-ci, ci/cd, sam, aws, github
-Slug: aws-lambda-with-travis-2
-Author: Mike Vanbuskirk
-Summary: In part 1 of this series, we created a basic serverless function with AWS Lambda. In part 2, we're going to use GitHub and Travis-CI to set up a continuous integration workflow.
+---
+title: "deploy aws lambda functions with aws-sam-cli and travis-ci: part 2"
+date: 2018-06-08
+author: Mike Vanbuskirk
+draft: true
+---
 
-![sam and travis]({attach}/images/sam_and_travis.png)
+![sam and travis](/sam_and_travis.png)
 
 In part 1 of this series, we created a basic serverless function with AWS Lambda.
 In part 2, we're going to use GitHub and Travis-CI to set up a continuous integration workflow.
