@@ -1,4 +1,4 @@
-baseurl = {{ getenv "DEPLOY_URL" }}
+baseurl = '{{ getenv "DEPLOY_URL" }}'
 title = "mike vanbuskirk i/o"
 author = "Mike Vanbuskirk"
 paginate = 4
