@@ -2,7 +2,7 @@
 title: "the verdict is in: remote work ftw"
 date: 2018-05-11
 author: Mike Vanbuskirk
-draft: true
+draft: false
 ---
 
 Remote work is dead. Remote work is not dead. Wait, no it's dead again. No wait we're just kidding,

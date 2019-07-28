@@ -2,7 +2,7 @@
 title: "deploy a terraform remote state backend with cloudformation"
 date: 2017-12-21
 author: Mike vanbuskirk
-draft: true
+draft: false
 ---
 
 ![terraform logo](/terraform_logo.png)

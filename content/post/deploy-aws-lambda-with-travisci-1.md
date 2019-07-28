@@ -2,7 +2,7 @@
 title: "deploy aws lambda functions with aws-sam-cli and travis-ci: part 1"
 date: 2018-05-22
 author: Mike Vanbuskirk
-draft: true
+draft: false
 ---
 
 ![sam and travis](/sam_and_travis.png)

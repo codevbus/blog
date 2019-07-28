@@ -1,0 +1,17 @@
+# Global settings
+[build]
+  publish = "public"
+  command = "hugo"
+
+# Production settings
+[context.production]
+  publish = "public"
+  command = "hugo"
+
+[context.production.environment]
+  DEPLOY_URL = "$URL"
+
+# Deploy settings
+[context.deploy-preview]
+  publish = "public"
+  command = "hugo"
