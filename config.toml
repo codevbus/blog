@@ -5,3 +5,7 @@ paginate = 4
 theme = "arabica"
 PygmentsCodeFences = true
 PygmentsStyle = "monokai"
+
+[params]
+  linkedin = "https://www.linkedin.com/in/mikevanbuskirk/"
+  github = "https://github.com/codevbus/"
