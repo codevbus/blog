@@ -1,10 +1,9 @@
-Title: the verdict is in: remote work ftw
-Date: 2018-5-11
-Category: Telecommuting
-Tags: devops, process, career, organization, culture, telecommuting
-Slug: remote-work-ftw
-Author: Mike Vanbuskirk
-Summary: Remote work is dead. Remote work is not dead. Wait, no it's dead again. No wait we're just kidding, it's totally awesome. It seems the techo-literistas have swung back and forth between pronouncing the death of remote work, and singing its praises. Well the verdict is in.
+---
+title: "the verdict is in: remote work ftw"
+date: 2018-05-11
+author: Mike Vanbuskirk
+draft: false
+---
 
 Remote work is dead. Remote work is not dead. Wait, no it's dead again. No wait we're just kidding,
 it's totally awesome. It seems the techo-literistas have swung back and forth between pronouncing

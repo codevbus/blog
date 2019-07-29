@@ -1,0 +1,17 @@
+# Global settings
+[build]
+  publish = "public"
+  command = "hugo --gc --minify"
+
+# Production settings
+[context.production.environment]
+  HUGO_ENV = "production"
+  HUGO_ENABLEGITINFO = "true"
+
+# Deploy settings
+[context.deploy-preview]
+  command = "hugo --gc --minify --buildFuture -b $DEPLOY_PRIME_URL"
+
+# Branch deploy
+[context.branch-deploy]
+  command = "hugo --gc --minify -b $DEPLOY_PRIME_URL"

@@ -1,12 +1,11 @@
-Title: deploy a terraform remote state backend with cloudformation
-Date: 2017-12-21
-Category: Terraform
-Tags: devops, cloudformation, terraform, aws, iac, github
-Slug: deploy-a-terraform-remote-state-backend-with-cloudformation
-Author: Mike Vanbuskirk
-Summary: Defining your infrastructure as code has become an integral part of many successful DevOps workflows. Terraform has become a key tool, and I often employ to define a variety of infrastructure. Today I'm going to show you how to set up the basic backend infrastructure needed to allow multiple engineers to collaborate on the same resources in AWS, using Terraform and CloudFormation.
+---
+title: "deploy a terraform remote state backend with cloudformation"
+date: 2017-12-21
+author: Mike vanbuskirk
+draft: false
+---
 
-![terraform logo]({attach}/images/terraform_logo.png)
+![terraform logo](/terraform_logo.png)
 
 
 Defining your infrastructure as code has become an integral part of many successful DevOps
@@ -42,7 +41,7 @@ I've already created the basic CloudFormation template to get the infrastructure
 want to take a shortcut to get up and running, simply click the "Launch Stack" button below and
 populate your variables as needed.
 
-[![Launch CloudFormation Stack]({attach}/images/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?/stacks/new?stackName=terraform-backend&templateURL=https://s3.us-east-2.amazonaws.com/sysengcooking-blog-cf-templates/tf-backend.yaml)
+[![Launch CloudFormation Stack](/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?/stacks/new?stackName=terraform-backend&templateURL=https://s3.us-east-2.amazonaws.com/sysengcooking-blog-cf-templates/tf-backend.yaml)
 
 ```yaml
 Parameters:
