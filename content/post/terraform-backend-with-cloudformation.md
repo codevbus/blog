@@ -1,12 +1,18 @@
 ---
 title: "deploy a terraform remote state backend with cloudformation"
-date: 2017-12-21
+date: "2017-12-21"
 author: Mike vanbuskirk
 draft: false
+categories: 
+  - post
+tags:
+  - aws
+  - terraform
+  - cloudformation
+  - iac 
 ---
 
 ![terraform logo](/terraform_logo.png)
-
 
 Defining your infrastructure as code has become an integral part of many successful DevOps
 workflows. Terraform has become a key tool, which I often employ to define a variety of

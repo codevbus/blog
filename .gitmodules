@@ -1,3 +1,15 @@
 [submodule "themes/arabica"]
 	path = themes/arabica
 	url = https://github.com/nirocfz/arabica.git
+[submodule "themes/bingo"]
+	path = themes/bingo
+	url = https://github.com/gundamew/hugo-bingo.git
+[submodule "themes/primer"]
+	path = themes/primer
+	url = https://github.com/qqhann/hugo-primer.git
+[submodule "themes/natrium"]
+	path = themes/natrium
+	url = https://github.com/mobybit/hugo-natrium-theme.git
+[submodule "themes/classic"]
+	path = themes/classic
+	url = https://github.com/goodroot/hugo-classic.git

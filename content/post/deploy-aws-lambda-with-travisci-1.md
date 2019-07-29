@@ -1,8 +1,17 @@
 ---
 title: "deploy aws lambda functions with aws-sam-cli and travis-ci: part 1"
-date: 2018-05-22
-author: Mike Vanbuskirk
+slug: "deploy-aws-lambda-functions-with-aws-sam-cli-and-travis-ci-1"
+date: "2018-05-22"
+author: "Mike Vanbuskirk"
 draft: false
+categories: 
+  - post
+tags:
+  - aws
+  - serverless
+  - ci/cd
+  - travis 
+  - python
 ---
 
 ![sam and travis](/sam_and_travis.png)
