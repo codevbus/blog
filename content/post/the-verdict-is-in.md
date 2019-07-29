@@ -1,8 +1,15 @@
 ---
 title: "the verdict is in: remote work ftw"
-date: 2018-05-11
+date: "2018-05-11"
 author: Mike Vanbuskirk
 draft: false
+categories: 
+  - post
+tags:
+  - remote
+  - ergonomics
+  - work arrangements
+  - career
 ---
 
 Remote work is dead. Remote work is not dead. Wait, no it's dead again. No wait we're just kidding,
