@@ -5,7 +5,9 @@ date: "2018-05-22"
 author: "Mike Vanbuskirk"
 draft: false
 categories: 
-  - post
+  - Tutorial
+  - Infrastructure As Code
+  - AWS
 tags:
   - aws
   - serverless

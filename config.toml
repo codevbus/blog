@@ -1,42 +1,34 @@
-baseurl = "https://sysengcooking.com/"
+baseurl = "https://sysengcooking.com"
+theme = "mainroad"
 title = "mike vanbuskirk i/o"
-author = "Mike Vanbuskirk"
-theme = "classic"
+paginate = 5
 pygmentsCodeFences = true
 pygmentsStyle = "native"
 enableEmoji = true
-preserveTaxonomyNames = true
 languageCode = "en-us"
 googleAnalytics = "UA-112057976-1"
 
-[taxonomies]
-  category = "categories"
-  tag = "tags"
+[Author]
+  name = "Mike Vanbuskirk"
 
-[permalinks]
-  post = "/post/:year/:month/:day/:slug/"
+[Params]
+  description = "musings. tutorials, thoughts, ramblings, and random prose"
+  copyright = "Mike Vanbuskirk"
+  toc = true
+  post_navigation = true
+  post_meta = ["date", "categories"]
+  highlightColor = "#0379d3"
 
-[[menu.main]]
-  name = "home"
-  url = "/"
-  weight = 2
+[Params.sidebar]
+  home = "right"
+  list = "right"
+  single = false
+  widgets = ["search", "recent", "categories", "taglist", "social"]
 
-[[menu.main]]
-  name = "tags"
-  url = "/tags"
-  weight = 3
+[Params.widgets]
+  recent_num = 5
+  tags_counter = false
 
-[[menu.main]]
-  name = "categories"
-  url = "/categories"
-  weight = 4
-
-[[menu.feed]]
-  name = "subscribe"
-  url = "/index.xml"
-
-[params]
-  description = ""
-  footer = "&copy; Mike Vanbuskirk 2019 | [Github](https://github.com/codevbus) | [LinkedIn](https://linkedin.com/in/mikevanbuskirk)"
-  custom_css = ["css/theme-override.css"]
-  
+[Params.widgets.social]
+  linkedin = "mikevanbuskirk"
+  github = "codevbus"

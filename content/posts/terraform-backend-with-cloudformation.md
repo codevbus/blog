@@ -4,7 +4,8 @@ date: "2017-12-21"
 author: Mike vanbuskirk
 draft: false
 categories: 
-  - post
+  - Tutorial
+  - Infrastructure As Code
 tags:
   - aws
   - terraform

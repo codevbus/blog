@@ -3,8 +3,10 @@ title: "the verdict is in: remote work ftw"
 date: "2018-05-11"
 author: Mike Vanbuskirk
 draft: false
+toc: false
 categories: 
-  - post
+  - Remote Work
+  - Industry
 tags:
   - remote
   - ergonomics
