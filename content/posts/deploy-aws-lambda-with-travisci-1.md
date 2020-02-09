@@ -16,8 +16,6 @@ tags:
   - python
 ---
 
-![sam and travis](/sam_and_travis.png)
-
 As serverless computing makes its way into the toolbox of more engineers and developers,
 the need for streamlined development and deployment options grows in importance. This 2-part series will
 share a basic workflow I've developed for developing and deploying serverless functions to AWS.

@@ -1,10 +1,10 @@
 ---
 title: about
-menu: main
 toc: false
+menu: main
 ---
 
-I'm Mike Vanbuskirk. I'm a Lead DevOps Engineer based out of San Francisco, CA. 
+I'm Mike Vanbuskirk. I'm a Lead DevOps Engineer based out of San Francisco, CA.
 
 I live in Western Michigan with my wife, son, our 5 cats and dog.
 

@@ -16,8 +16,6 @@ tags:
   - python
 ---
 
-![sam and travis](/sam_and_travis.png)
-
 In part 1 of this series, we created a basic serverless function with AWS Lambda.
 In part 2, we're going to use GitHub and Travis-CI to set up a continuous integration workflow.
 

@@ -7,12 +7,14 @@ pygmentsStyle = "native"
 enableEmoji = true
 languageCode = "en-us"
 googleAnalytics = "UA-112057976-1"
+disqusShortname = "sysengcooking"
 
 [Author]
   name = "Mike Vanbuskirk"
 
 [Params]
-  description = "musings. tutorials, thoughts, ramblings, and random prose"
+  subtitle = "musings, tutorials, thoughts, ramblings, and random prose"
+  description = "Mike Vanbuskirk's personal blog"
   copyright = "Mike Vanbuskirk"
   toc = true
   post_navigation = true
@@ -32,3 +34,4 @@ googleAnalytics = "UA-112057976-1"
 [Params.widgets.social]
   linkedin = "mikevanbuskirk"
   github = "codevbus"
+  twitter = "mikevanbus"

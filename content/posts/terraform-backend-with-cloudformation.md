@@ -13,8 +13,6 @@ tags:
   - iac 
 ---
 
-![terraform logo](/terraform_logo.png)
-
 Defining your infrastructure as code has become an integral part of many successful DevOps
 workflows. Terraform has become a key tool, which I often employ to define a variety of
 infrastructure. Today I'm going to show you how to set up the basic backend infrastructure needed to
