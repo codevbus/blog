@@ -2,11 +2,12 @@
 title: "consumed content week ending 2-28-20"
 author: ["Mike Vanbuskirk"]
 publishDate: 2020-02-28
-lastmod: 2020-02-27T19:39:18-05:00
+lastmod: 2020-02-27T19:54:46-05:00
 slug: "consumed-content-week-ending-2-28-20"
 tags: ["distributed", "systems", "distributed", "computing", "formal", "systems", "proofs", "tla+", "ai", "machine", "learning", "deep", "learning", "gaming", "operations", "chaos", "engineering", "observability", "math", "haskell", "career", "functional", "programming", "computer", "science", "startup", "tech", "consulting", "career", "entrepreneurship", "tech", "mtg"]
 categories: ["Consumed Content"]
 draft: false
+toc: false
 ---
 
 Still not _quite_ getting the time I'd like to do some serious reading. That being said, this is the first post I've done using [ox-hugo](https://github.com/kaushalmodi/ox-hugo).
@@ -24,7 +25,7 @@ SE Radio and the AI podcast were again listens this week. Hope everyone has a gr
 
 ## Articles/Blogs {#articles-blogs}
 
--[ Rehabilitating "you can't manage what you can't measure"](https://lorinhochstein.wordpress.com/2020/01/26/rehabilitating-you-cant-manage-what-you-cant-measure/) - This is a really good, critical way to look at how you might go about quantifying what is worth observing in your stack. As a former operations/incident management guy, this really hits home.
+-   [ Rehabilitating "you can't manage what you can't measure"](https://lorinhochstein.wordpress.com/2020/01/26/rehabilitating-you-cant-manage-what-you-cant-measure/) - This is a really good, critical way to look at how you might go about quantifying what is worth observing in your stack. As a former operations/incident management guy, this really hits home.
 
 -   [Math is your insurance policy | Bartosz Milewski's Programming Cafe ](https://bartoszmilewski.com/2020/02/24/math-is-your-insurance-policy/)- Ringing the alarm bells of "AI will take our jobs." The argument being that as long as we can provide precise specifications to an AI, it can write software for us, and we should all fall back on math as a differentiating skill. Firstly, computers are a lot better at math than me, but a lot worse at understading domain specifications for even basic things like "[what is a bottle?"](https://youtu.be/vNOTDn3D%5FRI?t=2784). Secondly, it's really expensive.
 -   [Andreessen-Horowitz craps on “AI” startups from a great height | Locklin on science](https://scottlocklin.wordpress.com/2020/02/21/andreessen-horowitz-craps-on-ai-startups-from-a-great-height/) - Warning: some pretty blunt/harsh language here. Remember point two from above? Yea, AI is _really_ expensive. And it still depends on humans.
