@@ -2,11 +2,11 @@
 title: "consumed content week ending 03-06-20"
 author: ["Mike Vanbuskirk"]
 publishDate: 2020-03-06
-lastmod: 2020-03-05T23:25:09-05:00
+lastmod: 2020-03-05T23:30:20-05:00
 slug: "consumed-content-week-ending-03-06-20"
-tags: ["career", "tech", "deep learning", "ai", "machine", "learning", "entrepreneurship", "programming", "math", "statistics", "gaming", "operations", "devops", "ci/cd", "tech", "entrepreneurship", "startup", "health", "learning", "career", "mastery", "reading", "observability", "operations", "ux", "devops", "sre"]
+tags: ["career", "tech", "deep learning", "ai", "machine learning", "entrepreneurship", "programming", "math", "statistics", "gaming", "operations", "devops", "ci/cd", "tech", "entrepreneurship", "startup", "health", "learning", "career", "mastery", "reading", "observability", "operations", "ux", "devops", "sre"]
 categories: ["Consumed Content"]
-draft: true
+draft: false
 toc: false
 ---
 
