@@ -2,7 +2,7 @@
 title: "consumed content week ending 03-13-20"
 author: ["Mike Vanbuskirk"]
 publishDate: 2020-03-13
-lastmod: 2020-03-13T00:35:04-04:00
+lastmod: 2020-03-13T00:41:12-04:00
 slug: "consumed-content-week-ending-03-13-20"
 tags: ["aws", "rust", "virtualization", "linux", "serverless", "quantum computing", "quantum mechanics", "pkm", "career", "writing", "productivity", "ai", "react", "javascript", "frontend"]
 categories: ["Consumed Content"]
@@ -12,7 +12,7 @@ toc: false
 
 ## Summary {#summary}
 
-My reading lagged again this week unfortunately. I did manage to read the Firecracker paper from AWS, which was a real treat. I still got to listen to some interesting podcasts. SE Daily did a week of Javascript, so I spent some time listening to how the "other half" lives :) The AI podcast has had some great guests discussing topics in physics and quantum computing.
+Unfortunately, another week of lagging reading. I did manage to read the Firecracker paper from AWS, which really impressed me. As always, I was lucky enough to have time for some interesting podcasts. SE Daily did a week of Javascript, so I spent some time with how the "other half" lives :) The AI podcast has had some great guests discussing topics in physics and quantum computing as well, and it's still one of my most listened-to podcasts at the moment.
 
 Obviously looming large this week is the Coronavirus, otherwise designated as COVID-19. My only hope is that everyone takes this as seriously as it warrants, and that preventative measures _now_ avert a bigger disaster later.
 
