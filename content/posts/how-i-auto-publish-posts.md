@@ -2,7 +2,7 @@
 title: "how I auto publish posts"
 author: ["Mike Vanbuskirk"]
 publishDate: 2020-03-18
-lastmod: 2020-03-17T19:01:47-04:00
+lastmod: 2020-03-17T23:36:15-04:00
 slug: "how-i-auto-publish-posts"
 tags: ["blogging", "blog", "automation", "writing", "github", "netlify", "hugo"]
 categories: ["Tutorial"]
@@ -90,7 +90,7 @@ First, I go to repo "Settings":
 
 ...then "Secrets":
 
-{{< figure src=":github_secrets.png" >}}
+{{< figure src="/ox-hugo/github_secrets.png" >}}
 
 I clicked "Add a new secret", named it "NETLIFY\_HOOK", and populated the value with the URL id. Now, whenever I want to have that secret available in a config, without revealing it, I can interpolate it with the following syntax:
 
