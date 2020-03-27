@@ -2,7 +2,7 @@
 title: about
 toc: false
 menu: main
-show_comments: false
+comments: false
 ---
 
 I'm Mike Vanbuskirk. I'm a Lead DevOps Engineer based out of San Francisco, CA.
