@@ -8,6 +8,7 @@ tags: ["career", "tech", "deep learning", "ai", "machine learning", "entrepreneu
 categories: ["Consumed Content"]
 draft: false
 toc: false
+lastmod: false
 ---
 
 ## Summary {#summary}

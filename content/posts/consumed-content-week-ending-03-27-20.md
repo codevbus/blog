@@ -8,6 +8,7 @@ tags: ["career", "tech", "hiring", "philosophy", "organizational culture", "habi
 categories: ["Consumed Content"]
 draft: false
 toc: false
+lastmod: false
 ---
 
 ## Summary {#summary}

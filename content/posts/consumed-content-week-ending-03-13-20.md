@@ -8,6 +8,7 @@ tags: ["aws", "rust", "virtualization", "linux", "serverless", "quantum computin
 categories: ["Consumed Content"]
 draft: false
 toc: false
+lastmod: false
 ---
 
 ## Summary {#summary}

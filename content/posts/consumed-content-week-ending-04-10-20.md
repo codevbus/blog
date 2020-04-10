@@ -2,12 +2,13 @@
 title: "consumed content week ending 04-10-20"
 author: ["Mike Vanbuskirk"]
 publishDate: 2020-04-10
-lastmod: 2020-04-09T21:07:40-04:00
+lastmod: 2020-04-09T21:33:06-04:00
 slug: "consumed-content-week-ending-04-10-20"
 tags: ["programming", "golang", "philosophy", "nlp", "tech", "writing", "workflow", "career", "virtual reality", "machine learning", "ai", "productivity", "tools", "reading"]
 categories: ["Consumed Content"]
 draft: false
 toc: false
+lastmod: false
 ---
 
 ## Summary {#summary}

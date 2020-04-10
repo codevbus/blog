@@ -8,6 +8,7 @@ tags: ["programming", "writing", "career", "computer science", "productivity", "
 categories: ["Consumed Content"]
 draft: false
 toc: false
+lastmod: false
 ---
 
 ## Summary {#summary}

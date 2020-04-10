@@ -8,6 +8,7 @@ tags: ["org-mode", "notes", "writing", "learning", "bitcoin", "workflow", "emacs
 categories: ["Consumed Content"]
 draft: false
 toc: false
+lastmod: false
 ---
 
 ## Summary {#summary}
