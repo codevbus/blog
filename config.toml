@@ -28,7 +28,7 @@ disqusShortname = "sysengcooking"
   widgets = ["search", "recent", "categories", "taglist", "social"]
 
 [Params.widgets]
-  recent_num = 5
+  recent_num = 10
   tags_counter = false
 
 [Params.widgets.social]
