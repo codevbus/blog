@@ -1,7 +1,7 @@
 baseurl = "https://sysengcooking.com"
 theme = "mainroad"
 title = "mike vanbuskirk i/o"
-paginate = 5
+paginate = 10
 pygmentsCodeFences = true
 pygmentsStyle = "native"
 enableEmoji = true
@@ -28,7 +28,7 @@ disqusShortname = "sysengcooking"
   widgets = ["search", "recent", "categories", "taglist", "social"]
 
 [Params.widgets]
-  recent_num = 10
+  recent_num = 5
   tags_counter = false
 
 [Params.widgets.social]
