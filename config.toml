@@ -1,37 +1,68 @@
-baseurl = "https://sysengcooking.com"
-theme = "mainroad"
-title = "mike vanbuskirk i/o"
+baseurl = "https://mikevanbuskirk.io"
+theme = "hugo-coder"
+title = "Mike Vanbuskirk"
 paginate = 10
-pygmentsCodeFences = true
-pygmentsStyle = "native"
 enableEmoji = true
 languageCode = "en-us"
 googleAnalytics = "UA-112057976-1"
-disqusShortname = "sysengcooking"
+disqusShortname = "mikevanbuskirk"
+pygmentsStyle = "native"
+pygmentscodefences = true
+pygmentscodefencesguesssyntax = true
 
 [Author]
   name = "Mike Vanbuskirk"
 
 [Params]
-  subtitle = "musings, tutorials, thoughts, ramblings, and random prose"
-  description = "Mike Vanbuskirk's personal blog"
+  info = "Lead DevOps Engineer, Freelance Writer and Consultant"
+  description = "Mike Vanbuskirk's personal site"
+  keywords = "blog, devops, personal"
   copyright = "Mike Vanbuskirk"
-  toc = true
-  post_navigation = true
-  post_meta = ["date", "categories"]
-  highlightColor = "#0379d3"
+  avatarurl = "/avatar.jpg"
 
-[Params.sidebar]
-  home = "right"
-  list = "right"
-  single = false
-  widgets = ["search", "recent", "categories", "taglist", "social"]
+  favicon_32 = "/favicon.png"
+  favicon_16 = "/favicon.png"
 
-[Params.widgets]
-  recent_num = 5
-  tags_counter = false
+  hidecredits = false
+  hidecopyright = false
+  rtl = false
 
-[Params.widgets.social]
-  linkedin = "mikevanbuskirk"
-  github = "codevbus"
-  twitter = "mikevanbus"
+  math = true
+  #custom_css = ["css/custom.css"]
+
+# Social links
+[[Params.social]]
+    name = "Github"
+    icon = "fab fa-github-alt fa-2x"
+    weight = 1
+    url = "https://github.com/codevbus/"
+[[Params.social]]
+    name = "LinkedIn"
+    icon = "fab fa-linkedin fa-2x"
+    weight = 2
+    url = "https://www.linkedin.com/in/mikevanbuskirk/"
+[[Params.social]]
+    name = "Twitter"
+    icon = "fab fa-twitter fa-2x"
+    weight = 3
+    url = "https://twitter.com/mikevanbus/"
+[[Params.social]]
+    name = "Quora"
+    icon = "fab fa-quora fa-2x"
+    weight = 4
+    url = "https://twitter.com/mikevanbus/"
+[[Params.social]]
+	name = "Stack Overflow"
+	icon = "fab fa-stack-overflow fa-2x"
+	weight = 5
+	url = "https://stackoverflow.com/users/6728379/mike-vanbuskirk"
+
+# Menu links
+[[menu.main]]
+    name = "Blog"
+    weight = 1
+    url  = "/posts/"
+[[menu.main]]
+    name = "About"
+    weight = 2
+    url = "/about/"
