@@ -57,9 +57,14 @@ pygmentscodefencesguesssyntax = true
 	weight = 5
 	url = "https://stackoverflow.com/users/6728379/mike-vanbuskirk"
 [[Params.social]]
+	name = "Dev.to"
+	icon = "fab fa-dev fa-2x"
+	weight = 6
+	url = "https://dev.to/codevbus"
+[[Params.social]]
 	name = "Email"
 	icon = "far fa-envelope fa-2x"
-	weight = 5
+	weight = 7
 	url = "mailto:mike@mikevanbuskirk.io"
 
 # Menu links
