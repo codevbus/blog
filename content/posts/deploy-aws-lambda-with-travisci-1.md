@@ -5,15 +5,14 @@ date: "2018-05-22"
 author: "Mike Vanbuskirk"
 draft: false
 categories: 
-  - Tutorial
-  - Infrastructure As Code
-  - AWS
+  - How-To
 tags:
   - aws
   - serverless
   - ci/cd
   - travis 
   - python
+  - infrastructure as code
 ---
 
 As serverless computing makes its way into the toolbox of more engineers and developers,

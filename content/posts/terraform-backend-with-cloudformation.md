@@ -4,13 +4,12 @@ date: "2017-12-21"
 author: Mike vanbuskirk
 draft: false
 categories: 
-  - Tutorial
-  - Infrastructure As Code
+  - How-To
 tags:
   - aws
   - terraform
   - cloudformation
-  - iac 
+  - infrastructure as code
 ---
 
 Defining your infrastructure as code has become an integral part of many successful DevOps

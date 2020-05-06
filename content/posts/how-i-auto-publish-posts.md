@@ -5,7 +5,7 @@ publishDate: 2020-03-18
 lastmod: 2020-03-17T23:36:15-04:00
 slug: "how-i-auto-publish-posts"
 tags: ["blogging", "blog", "automation", "writing", "github", "netlify", "hugo"]
-categories: ["Tutorial"]
+categories: ["How-To"]
 draft: false
 toc: false
 ---

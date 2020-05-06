@@ -6,10 +6,7 @@ author: mike vanbuskirk
 draft: false
 toc: false
 categories:
-  - Ergonomics
   - Productivity
-  - Remote Work
-  - What I Use
 tags:
   - ergonomics
   - ide

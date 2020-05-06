@@ -5,15 +5,14 @@ date: "2018-06-08"
 author: Mike Vanbuskirk
 draft: false
 categories: 
-  - Tutorial
-  - Infrastructure As Code
-  - AWS
+  - How-To
 tags:
   - aws
   - serverless
   - ci/cd
   - travis 
   - python
+  - infrastructure as code
 ---
 
 In part 1 of this series, we created a basic serverless function with AWS Lambda.

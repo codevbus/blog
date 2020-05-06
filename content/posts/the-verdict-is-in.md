@@ -5,8 +5,7 @@ author: Mike Vanbuskirk
 draft: false
 toc: false
 categories: 
-  - Remote Work
-  - Industry
+  - Productivity
 tags:
   - remote
   - ergonomics
