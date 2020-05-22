@@ -2,7 +2,7 @@
 title: "consumed content week ending 05-22-20"
 author: ["Mike Vanbuskirk"]
 publishDate: 2020-05-22T00:00:00-05:00
-lastmod: 2020-05-22T15:52:25-04:00
+lastmod: 2020-05-22T15:56:18-04:00
 slug: "consumed-content-week-ending-05-22-20"
 tags: ["serverless", "startup", "marketing", "vc", "entrepreneurship", "REST", "writing", "career", "aws", "ci/cd", "security", "documentation", "reading", "kubernetes", "technical writing", "investing", "api", "docker", "blogging"]
 categories: ["Consumed Content"]
@@ -33,3 +33,4 @@ Hope everyone stays healthy and safe this holiday weekend.
 
 -   [Sell Yourself Sell Your Work](https://www.solipsys.co.uk/new/SellYourselfSellYourWork.html?te20hn) - This post re-inforces a lot of what I've learned about what it means to "own" your career. Technical achievement is important, but if you can't sell yourself or your ideas, it's going to be like shouting down a hole.
 -   [IT'S TIME TO BUILD - Andreessen Horowitz](https://a16z.com/2020/04/18/its-time-to-build/) - Aspirational call to "build things we need" from AH. I'm sure they wouldn't mind a piece of companies that are building :)
+-   [Making Emacs popular again {LWN.net}](https://lwn.net/Articles/819452/) - Snippet from a mailing list discussing Emacs declining popularity in the face of VSCode and Vim. As a recent convert to Emacs, I'm forced to admit it's _waaaay_ less user-friendly than, say VSCode. I'm probably still not using it to nearly it's effective capabilities. However, org-mode and magit are killer features, and I've yet to seem them duplicated well in any other IDE.
