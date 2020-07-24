@@ -1,8 +1,8 @@
 ---
 title: "New Site Launch"
 author: ["Mike Vanbuskirk"]
-publishDate: 2020-07-22T00:00:00-05:00
-lastmod: 2020-07-22T19:03:11-04:00
+publishDate: 2020-07-23T00:00:00-05:00
+lastmod: 2020-07-23T19:03:11-04:00
 slug: "new-site-launch"
 tags: ["no-code", "dev.to", "social", "metrics"]
 categories: ["Announcement", "Launch"]
@@ -17,7 +17,7 @@ I've been experimenting with "No Code" tools recently, and I'm continually blown
 
 I'm launching a site dedicated to "No Code" tutorials, tips, tools, and news: <https://nocodeautomation.io>
 
-The site isn't live yet, but I'll be sending updates and content to subscribed users. Please sign up if you think this might be useful or interesting, or you if know of someone who may.
+The site isn't live yet, but I'll be sending updates and content to subscribed users. Please sign up if you think this might be useful or interesting, or if you know of someone who may.
 
 I posted a tutorial on dev.to to help promote the kind of content that will be featured on the site:
 
