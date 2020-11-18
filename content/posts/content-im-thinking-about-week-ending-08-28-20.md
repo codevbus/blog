@@ -22,7 +22,7 @@ Lately, I've spent time thinking about my type of role, and where it has a place
 
 "Sociotechnical Engineer" is also a great term I intend to shamelessly steal. I've [written before](https://www.skilledinc.com/blog/how-to-hire-and-interview-for-devops-engineers) that hiring a great devops engineer is about finding someone that is able to be "organizationally dynamic", and sociotechnical is a great way to describe that.
 
-At the end, devops is about enabling organizations to iterate and ship features faster, and that may mean stiching together APIs, or building tools with...
+At the end, devops is about enabling organizations to iterate and ship features faster, and that may mean stitching together APIs, or building tools with...
 
 
 ## ... No code? {#dot-dot-dot-no-code}
