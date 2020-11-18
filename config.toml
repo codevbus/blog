@@ -1,7 +1,7 @@
 baseurl = "https://mikevanbuskirk.io"
 theme = "hugo-coder"
 title = "Mike Vanbuskirk"
-paginate = 20
+paginate = 30
 enableEmoji = true
 languageCode = "en-us"
 googleAnalytics = "UA-112057976-1"
