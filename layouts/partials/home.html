@@ -29,13 +29,9 @@
     {{ end }}
 	I'm Mike Vanbuskirk</br>Lead DevOps engineer and freelance consultant.</br> I engage in opportunities for technical content creation and consulting.</br>
 	I can be reached via email <a href="mailto:mike@mikevanbuskirk.io">here</a></br>
-	  {{ with .Site.Menus.main }}
-	    {{ range first 1 . }}
-	  Check out what I've written(and read) on the <a href="{{ .URL | absLangURL }}">blog</a>.</br>
-    Links to my published content are on the <a href="{{ .URL | absLangURL }}">publications</a> page.</br></br>
-	Opinions expressed are solely my own and do not express the views or opinions of my employer.	
-	    {{ end }}
-	  {{ end }}
+	  Check out what I've written(and read) on the <a href="{{ "posts/" | absLangURL }}">blog</a>.</br>
+    Links to my published content are on the <a href="{{ "publications/" | absLangURL }}">publications</a> page.</br></br>
+	Opinions expressed are solely my own and do not express the views or opinions of my employer.
 	 </ul>
 </div>
 </section>
