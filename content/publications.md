@@ -10,6 +10,7 @@ This page will link to any of my published content on 3rd-party blogs, sites, et
 - [Comparing AWS, Azure, and Google Cloud IAM services](https://acloudguru.com/blog/engineering/comparing-aws-azure-and-google-cloud-iam-services)
 - [NoSQL databases Comparison: Cosmos DB vs DynamoDB vs Cloud Datastore and Bigtable](https://acloudguru.com/blog/engineering/comparing-cloud-nosql-databases-dynamodb-vs-cosmos-db-vs-cloud-datastore-and-bigtable)
 - [AWS adds to the no-code pile: Is it the end of the engineer?](https://acloudguru.com/blog/engineering/aws-adds-to-the-no-code-pile-is-it-the-end-of-the-engineer)
+- [To succeed in DevOps careers, level up these soft skills](https://acloudguru.com/blog/engineering/to-succeed-in-devops-careers-level-up-these-soft-skills)
 
 # IAMONDEMAND(IOD)
 - [Jenkins and Spinnaker: Turbocharge Your CI/CD With Cloud Native](https://iamondemand.com/blog/jenkins-and-spinnaker-turbocharge-your-ci-cd-with-cloud-native/)
