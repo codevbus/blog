@@ -1,7 +1,8 @@
 baseurl = "https://mikevanbuskirk.io"
 theme = "hugo-coder"
 title = "Mike Vanbuskirk"
-paginate = 30
+paginate = 5
+summaryLength = 40
 enableEmoji = true
 languageCode = "en-us"
 googleAnalytics = "UA-112057976-1"
@@ -28,7 +29,7 @@ pygmentscodefencesguesssyntax = true
   rtl = false
 
   math = true
-  #custom_css = ["css/custom.css"]
+  custom_css = ["css/custom.css"]
 
 # Social links
 [[Params.social]]

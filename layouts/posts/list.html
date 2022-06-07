@@ -1,0 +1,19 @@
+{{ define "title" }}
+  {{ .Title }} · {{ .Site.Title }}
+{{ end }}
+{{ define "content" }}
+  <section class="container list">
+    <h1 class="title">{{ .Title }}</h1>
+    <ul>
+      {{- range .Paginator.Pages -}}
+        {{- .Render "li" -}}
+            {{ if .Truncated }}
+                <div class="summary">
+                  <a href="{{ .RelPermalink }}">Read More...</a>
+                </div>
+            {{- end -}}
+      {{- end -}}
+    </ul>
+    {{ partial "pagination.html" . }}
+  </section>
+{{ end }}
