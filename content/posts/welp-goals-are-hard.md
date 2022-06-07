@@ -16,7 +16,7 @@ So yeah, as it turns out, goals are hard.
 A month ago, I set out some [loosely defined goals for 2021](https://mikevanbuskirk.io/posts/its-been-awhile/).
 
 How is it going, you ask?
-
+<!--more-->
 Well, this is the first post in the month since I wrote that post, the number of Twitter followers I have are exactly the same, and I haven't launched any sites or products.
 
 Not exactly a hot start to the year.
