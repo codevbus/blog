@@ -6,6 +6,9 @@ comments: false
 
 This page will link to any of my published content on 3rd-party blogs, sites, etc...
 
+# GitLab
+- [Observability vs. monitoring in DevOps](https://about.gitlab.com/blog/2022/06/14/observability-vs-monitoring-in-devops/)
+
 # A Cloud Guru
 - [Comparing AWS, Azure, and Google Cloud IAM services](https://acloudguru.com/blog/engineering/comparing-aws-azure-and-google-cloud-iam-services)
 - [NoSQL databases Comparison: Cosmos DB vs DynamoDB vs Cloud Datastore and Bigtable](https://acloudguru.com/blog/engineering/comparing-cloud-nosql-databases-dynamodb-vs-cosmos-db-vs-cloud-datastore-and-bigtable)
