@@ -16,6 +16,7 @@ This page will link to any of my published content on 3rd-party blogs, sites, et
 - [Top DevOps skills and technologies (and how to learn them)](https://acloudguru.com/blog/engineering/to-succeed-in-devops-careers-level-up-these-soft-skills)
 - [5 things we love about Terraform](https://acloudguru.com/blog/engineering/5-things-we-love-about-terraform)
 - [AWS IAM Security Best Practices](https://acloudguru.com/blog/engineering/aws-iam-security-best-practices)
+- [5 ways to implement DevSecOps right now](https://acloudguru.com/blog/engineering/5-ways-to-implement-devsecops-right-now)
 
 # IAMONDEMAND(IOD)
 - [Jenkins and Spinnaker: Turbocharge Your CI/CD With Cloud Native](https://iamondemand.com/blog/jenkins-and-spinnaker-turbocharge-your-ci-cd-with-cloud-native/)
