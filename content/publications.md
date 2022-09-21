@@ -21,6 +21,12 @@ This page will link to any of my published content on 3rd-party blogs, sites, et
 # IAMONDEMAND(IOD)
 - [Jenkins and Spinnaker: Turbocharge Your CI/CD With Cloud Native](https://iamondemand.com/blog/jenkins-and-spinnaker-turbocharge-your-ci-cd-with-cloud-native/)
 
+# Dev.to
+- [Deploy AWS Lambda functions with aws-sam-cli and Travis-CI](https://dev.to/codevbus/deploy-aws-lambda-functions-with-aws-sam-cli-and-travis-ci-3m9m)
+- [Deploy AWS Lambda functions with aws-sam-cli and Travis-CI: Part 2](https://dev.to/codevbus/deploy-aws-lambda-functions-with-aws-sam-cli-and-travis-ci-part-2-2goh)
+- [Track Your Dev.to Metrics with no-code](https://dev.to/codevbus/track-your-dev-to-metrics-with-no-code-2k5m)
+- [Graph Your Dev.to Metrics with no-code](https://dev.to/codevbus/graph-your-dev-to-metrics-with-no-code-2a5j)
+
 # SkilledInc
 - [How to Hire and Interview For DevOps Engineers](https://www.skilledinc.com/blog/how-to-hire-and-interview-for-devops-engineers)
 
