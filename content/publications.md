@@ -8,6 +8,7 @@ This page will link to any of my published content on 3rd-party blogs, sites, et
 
 # GitLab
 - [Observability vs. monitoring in DevOps](https://about.gitlab.com/blog/2022/06/14/observability-vs-monitoring-in-devops/)
+- [How to Start a Great OSS Project](https://about.gitlab.com/blog/2022/10/18/how-to-start-a-great-oss-project/)
 
 # A Cloud Guru
 - [Comparing AWS, Azure, and Google Cloud IAM services](https://acloudguru.com/blog/engineering/comparing-aws-azure-and-google-cloud-iam-services)
