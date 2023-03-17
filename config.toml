@@ -30,6 +30,8 @@ pygmentscodefencesguesssyntax = true
   math = true
   custom_css = ["css/custom.css"]
 
+  colorScheme = "dark"
+
 # Social links
 [[Params.social]]
     name = "Github"
