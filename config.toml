@@ -14,7 +14,7 @@ pygmentscodefencesguesssyntax = true
   name = "Mike Vanbuskirk"
 
 [Params]
-  info = "Lead DevOps Engineer, Consultant, and Freelance Content Creator"
+  info = "DevOps Engineer and Content Creator"
   description = "Mike Vanbuskirk's personal site"
   keywords = "blog, devops, personal"
   copyright = "Mike Vanbuskirk"
@@ -49,20 +49,10 @@ pygmentscodefencesguesssyntax = true
     weight = 3
     url = "https://twitter.com/mikevanbus/"
 [[Params.social]]
-	name = "Stack Overflow"
-	icon = "fab fa-stack-overflow fa-2x"
-	weight = 4
-	url = "https://stackoverflow.com/users/6728379/mike-vanbuskirk"
-[[Params.social]]
 	name = "Dev.to"
 	icon = "fab fa-dev fa-2x"
 	weight = 5
 	url = "https://dev.to/codevbus"
-[[Params.social]]
-	name = "Email"
-	icon = "far fa-envelope fa-2x"
-	weight = 6
-	url = "mailto:mike@mikevanbuskirk.io"
 
 # Menu links
 [[menu.main]]
