@@ -9,6 +9,7 @@ categories: ["DevOps"]
 draft: false
 toc: false
 lastmod: false
+thumbnail: "devops_cycle.jpg"
 ---
 
 Lately there seems to be a growing chorus within software engineering that DevOps is "dead", or at least an abject failure.

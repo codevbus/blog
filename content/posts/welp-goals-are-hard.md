@@ -9,6 +9,7 @@ categories: ["Update"]
 draft: false
 toc: false
 lastmod: false
+thumbnail: "accomplish.jpg"
 ---
 
 So yeah, as it turns out, goals are hard.

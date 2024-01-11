@@ -1,0 +1,13 @@
+<div class="recent-posts-heading">
+<h2>Recent blog posts</h2>
+</div>
+<div class="recent-posts">
+  {{ range first 3 .Paginator.Pages }}
+    <div class="post">
+      <a href="{{ .Permalink }}">
+        <img class="thumbnail" src="{{ .Params.thumbnail }}" alt="{{ .Title }}" />
+        <p>{{ .Title }}</p>
+      </a>
+    </div>
+  {{ end }}
+</div>

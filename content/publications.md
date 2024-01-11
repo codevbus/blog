@@ -11,14 +11,14 @@ This page will link to any of my published content on 3rd-party blogs, sites, et
 - [How to Start a Great OSS Project](https://about.gitlab.com/blog/2022/10/18/how-to-start-a-great-oss-project/)
 
 # A Cloud Guru
+- [How to test an LLM-based application as a DevOps engineer](https://www.pluralsight.com/resources/blog/software-development/testing-llm-applications-devops)
+- [5 ways to implement DevSecOps right now](https://acloudguru.com/blog/engineering/5-ways-to-implement-devsecops-right-now)
+- [AWS IAM Security Best Practices](https://acloudguru.com/blog/engineering/aws-iam-security-best-practices)
+- [5 things we love about Terraform](https://acloudguru.com/blog/engineering/5-things-we-love-about-terraform)
+- [Top DevOps skills and technologies (and how to learn them)](https://acloudguru.com/blog/engineering/to-succeed-in-devops-careers-level-up-these-soft-skills)
+- [AWS adds to the no-code pile: Is it the end of the engineer?](https://acloudguru.com/blog/engineering/aws-adds-to-the-no-code-pile-is-it-the-end-of-the-engineer)
 - [Comparing AWS, Azure, and Google Cloud IAM services](https://acloudguru.com/blog/engineering/comparing-aws-azure-and-google-cloud-iam-services)
 - [NoSQL databases Comparison: Cosmos DB vs DynamoDB vs Cloud Datastore and Bigtable](https://acloudguru.com/blog/engineering/comparing-cloud-nosql-databases-dynamodb-vs-cosmos-db-vs-cloud-datastore-and-bigtable)
-- [AWS adds to the no-code pile: Is it the end of the engineer?](https://acloudguru.com/blog/engineering/aws-adds-to-the-no-code-pile-is-it-the-end-of-the-engineer)
-- [Top DevOps skills and technologies (and how to learn them)](https://acloudguru.com/blog/engineering/to-succeed-in-devops-careers-level-up-these-soft-skills)
-- [5 things we love about Terraform](https://acloudguru.com/blog/engineering/5-things-we-love-about-terraform)
-- [AWS IAM Security Best Practices](https://acloudguru.com/blog/engineering/aws-iam-security-best-practices)
-- [5 ways to implement DevSecOps right now](https://acloudguru.com/blog/engineering/5-ways-to-implement-devsecops-right-now)
-
 # IAMONDEMAND(IOD)
 - [Jenkins and Spinnaker: Turbocharge Your CI/CD With Cloud Native](https://iamondemand.com/blog/jenkins-and-spinnaker-turbocharge-your-ci-cd-with-cloud-native/)
 
