@@ -9,6 +9,7 @@ categories: ["How-To"]
 draft: false
 toc: false
 lastmod: false
+thumbnail: "docker_whale.jpg"
 ---
 
 It's been over a year since I've last posted anything to the blog that wasn't commissioned writing. Maintaining consistency in writing definitely falls under a "hard" thing for me.
