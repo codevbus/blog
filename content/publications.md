@@ -6,6 +6,9 @@ comments: false
 
 This page will link to any of my published content on 3rd-party blogs, sites, etc...
 
+# Terrateam
+- [Using LLMs to Generate Terraform Code](https://terrateam.io/blog/using-llms-to-generate-terraform-code)
+
 # GitLab
 - [Observability vs. monitoring in DevOps](https://about.gitlab.com/blog/2022/06/14/observability-vs-monitoring-in-devops/)
 - [How to Start a Great OSS Project](https://about.gitlab.com/blog/2022/10/18/how-to-start-a-great-oss-project/)
