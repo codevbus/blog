@@ -1,0 +1,297 @@
+<!doctype html>
+<html>
+    <head>
+                <title>deploy a terraform remote state backend with cloudformation - Mike Vanbuskirk</title>
+
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+            
+            
+            
+
+            
+                <link  rel="icon" type="image/x-icon" href="../../assets/favicon.ico">
+            
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+            <link rel="stylesheet" href="../../assets/css/main.min.css">
+                <script src="../../search/main.js"></script>
+
+            
+                
+            
+    </head>
+
+    <body>
+        <div class="container py-3">
+            <header>
+                    <!-- block header -->
+<nav class="navbar navbar-expand-xl border-bottom">
+    <div class="container-fluid">
+        
+            <img class="logo" src="../../assets/avatar.jpg">
+        
+
+        
+            <span class=" fs-4 title-color site-name" id="component-site-name" style="text-transform: uppercase;">Mike Vanbuskirk</span>
+        
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsMenu"
+            aria-controls="navbarsMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse flex-column ml-auto" id="navbarsMenu">
+            <ul class="navbar-nav">
+
+                <!-- block menu -->
+                <li class="nav-item">
+                    <!-- block menu -->
+    
+        <li class="nav-item" id="component-menu">
+            <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="
+                            nav-link text-gray text-decoration-none" href="../">[Blog]</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="
+                            nav-link text-gray text-decoration-none" href="../..">[Home]</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="
+                            nav-link text-gray text-decoration-none" href="../../about/">[About]</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="
+                            nav-link text-gray text-decoration-none" href="../../publications/">[Publications]</a>
+                        </li>
+            </ul>
+        </li>
+<!-- endblock -->
+                </li>
+                <!-- endblock -->
+
+                <!-- block search -->
+                <li class="nav-item">
+                    <a class="collapsed" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        <div class="md-search-icon">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                    </a>
+                </li>
+                <!--  endblock -->
+
+                <!-- block source -->
+                <li class="nav-item">
+                    
+                </li>
+                <!--  endblock -->
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--  endblock -->
+            </header>
+
+            <main><!-- block search -->
+<div class="collapse" id="collapseExample">
+    <div role="search" class="search-box">
+        <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+            <input type="text" name="q" class="search-query"
+            placeholder="Search docs" title="Type search term here" />
+        </form>
+    </div>
+</div>
+<!-- endblock -->
+                    <!-- block content -->
+<section class="container post">
+    <article>
+        <header>
+            
+            
+        </header>
+        <p><p>Defining your infrastructure as code has become an integral part of many successful DevOps
+workflows. Terraform has become a key tool, which I often employ to define a variety of
+infrastructure. Today I'm going to show you how to set up the basic backend infrastructure needed to
+allow multiple engineers to collaborate on the same resources in AWS, using Terraform and
+CloudFormation.</p>
+<h3 id="prerequisites">Prerequisites</h3>
+<p>To complete the actions described in this tutorial, you'll need access to an AWS account in which
+you have permissions to access and provision resources. If you haven't already, go ahead and get the
+AWS Command Line utility installed: <a href="http://docs.aws.amazon.com/cli/latest/userguide/installing.html">Installation Guide</a> and configured: <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html">Configuration Guide</a>.</p>
+<p><strong>DISCLAIMER</strong>: Any AWS resources you provision during the course of this tutorial may result in
+charges being billed to your account. The author assumes no responsibility, legal or otherwise, for
+charges incurred.</p>
+<h3 id="what-are-we-doing-why">What Are We Doing? Why?</h3>
+<p>Now that you have Terraform installed, you should be able to create, modify, and destroy AWS
+resources. The problem is, this setup is really only good for local testing and development. When it
+comes time to start deploying production infrastructure, and multiple engineers need to work against
+the same resource stacks, there needs to be some way to ensure consistency, and to avoid overlapping
+changes. Enter remote state locking and backends.</p>
+<p>Take some time to read the official <a href="https://www.terraform.io/docs/backends/index.html">Hashicorp documentation on
+backends</a>. It explains what a backend is, what it
+does, and the benefits of employing one.</p>
+<p>Today we're going to deploy a remote backend with AWS S3, and state locking via AWS DynamoDB.</p>
+<h3 id="getting-started-with-aws">Getting Started With AWS</h3>
+<p>I've already created the basic CloudFormation template to get the infrastructure created. If you
+want to take a shortcut to get up and running, simply click the "Launch Stack" button below and
+populate your variables as needed.</p>
+<p><a href="https://console.aws.amazon.com/cloudformation/home?/stacks/new?stackName=terraform-backend&amp;templateURL=https://s3.us-east-2.amazonaws.com/sysengcooking-blog-cf-templates/tf-backend.yaml"><img alt="Launch CloudFormation Stack" src="/cloudformation-launch-stack.png" /></a></p>
+<pre><code class="language-yaml">Parameters:
+  StateBucketName:
+    Description: Name of the S3 bucket to place the Terraform state files in.
+    Type: String
+  LockTableName:
+    Description: Name of the DynamoDB table to store state locks.
+    Type: String
+
+AWSTemplateFormatVersion: 2010-09-09
+Resources:
+  TerraformStateBucket:
+    Type: 'AWS::S3::Bucket'
+    Properties:
+      AccessControl: Private
+      BucketName: !Ref StateBucketName
+      VersioningConfiguration:
+        Status: Enabled
+
+  TerraformLockTable:
+    Type: 'AWS::DynamoDB::Table'
+    Properties:
+      AttributeDefinitions:
+        - AttributeName: LockID
+          AttributeType: S
+      KeySchema:
+        - AttributeName: LockID
+          KeyType: HASH
+      ProvisionedThroughput:
+        ReadCapacityUnits: 5
+        WriteCapacityUnits: 5
+      TableName: !Ref LockTableName
+
+Outputs:
+  StackName:
+    Value: !Ref AWS::StackName
+</code></pre>
+<p>If you want to launch the stack manually using the AWS CLI, create a file in your working directory
+called <code>backend.yaml</code> and copy the above code in to it. The following command will launch the stack.
+You will need to provide your desired values for the bucket name and DynamoDB table:</p>
+<pre><code class="language-bash">aws cloudformation create-stack --stack-name terraform-backend
+   --template-body file://backend.yaml
+   --parameters ParameterKey=StateBucketName,ParameterValue=&lt;your_bucket_name&gt; ParameterKey=LockTableName,ParameterValue=&lt;your_lock_table_name&gt;
+</code></pre>
+<p>Now we can move on to configuring our Terraform infrastructure to utilize our new remote state backend.</p>
+<h3 id="configuring-terraform">Configuring Terraform</h3>
+<p>If you've deployed any infrastructure with Terraform, you are likely familiar with the basic,
+overall structure of a project. You have the binary installed on your local development system,
+and a root folder for a given project, containing at least one, often several terraform files.
+Information about the state of the infrastructure is stored locally on your machine.</p>
+<p>This works well for quick, iterative development work, but presents obvious problems for
+collaboration. Using the infrastructure we deployed earlier in the tutorial, we'll configure a basic
+Terraform project to utilize remote state storage and locking. This will enable the ability to
+collaborate safely, as well as provide a safety net if the infrastructure state becomes corrupted or
+lost on the local workstation.</p>
+<pre><code class="language-hcl">provider &quot;aws&quot; {
+  region = &quot;&lt;aws_region&gt;&quot;
+}
+
+terraform {
+  backend &quot;s3&quot; {
+    bucket         = &quot;&lt;bucket_name&gt;&quot;
+    key            = &quot;&lt;folder/filename.tfstate&gt;&quot;
+    region         = &quot;&lt;aws_region&gt;&quot;
+    dynamodb_table = &quot;&lt;dynamo_table_name&gt;&quot;
+    encrypt        = true
+  }
+}
+</code></pre>
+<p>Populate the bucket, region, and dynamodb_table variables with the bucket name and dynamodb table
+name you chose earlier, as well as the AWS region you are operating out of.</p>
+<h3 id="utilizing-the-backend">Utilizing The Backend</h3>
+<p>We'll test our new backend by running a plan against a very simplistic AWS resource in a new Terraform project.
+The backend can be used for multiple Terraform projects/environments, so feel free to configure your
+other projects as needed.</p>
+<p>Copy the <code>backend.tf</code> file you created earlier to a new project directory. From inside the
+directory, run the command:</p>
+<pre><code class="language-bash">$ terraform init
+</code></pre>
+<p>Your output should be similar to the following:</p>
+<pre><code class="language-text">$ terraform init
+
+Initializing the backend...
+
+Successfully configured the backend &quot;s3&quot;! Terraform will automatically
+use this backend unless the backend configuration changes.
+
+Initializing provider plugins...
+- Checking for available provider plugins on https://releases.hashicorp.com...
+- Downloading plugin for provider &quot;aws&quot; (1.6.0)...
+
+The following providers do not have any version constraints in configuration,
+    so the latest version was installed.
+
+    To prevent automatic upgrades to new major versions that may contain breaking
+    changes, it is recommended to add version = &quot;...&quot; constraints to the
+    corresponding provider blocks in configuration, with the constraint strings
+    suggested below.
+
+    * provider.aws: version = &quot;~&gt; 1.6&quot;
+
+    Terraform has been successfully initialized!
+
+    You may now begin working with Terraform. Try running &quot;terraform plan&quot; to see
+    any changes that are required for your infrastructure. All Terraform commands
+    should now work.
+
+    If you ever set or change modules or backend configuration for Terraform,
+    rerun this command to reinitialize your working directory. If you forget, other
+    commands will detect it and remind you to do so if necessary.
+</code></pre>
+<p>You can see in the first steps of the output, Terraform initializes and configures the
+backend. Note that you are required to have the S3 bucket and DynamoDB table already deployed and
+configured with the correct permissions before Terraform can utilize it.</p>
+<p>The backend can be tested simply by running <code>terraform plan</code> against a basic resource config. I used
+an empty security group to validate:</p>
+<pre><code class="language-hcl">resource &quot;aws_security_group&quot; &quot;main&quot; {
+  name = &quot;test&quot;
+  description = &quot;test sg&quot;
+  vpc_id      = &lt;your_vpc_id&gt;
+}
+</code></pre>
+<p>Be sure to fill in the correct value for your VPC id. Run:</p>
+<pre><code class="language-bash">$ terraform plan
+</code></pre>
+<p>inside the working directory. The import output to validate will come at the beginning:</p>
+<pre><code class="language-text">Acquiring state lock. This may take a few moments...
+</code></pre>
+<p>and end:</p>
+<pre><code class="language-text">Releasing state lock. This may take a few moments...
+</code></pre>
+<p>This lets you know that Terraform is interacting correctly with the remote lock table and state file.</p>
+<h3 id="conclusion">Conclusion</h3>
+<p>After completing this tutorial successfully, you should have a Cloudformation-defined remote state and locking infrastructure for Terraform. This is a major step towards utilizing Terraform on a larger scale for your infrastructure deployments!</p></p>
+    </article>
+</section>
+<!-- endblock -->
+            </main>
+
+            
+            
+
+            
+            
+        </div>
+
+            <script>var base_url = '../..';</script>
+            <script src="../../assets/js/jquery-3.3.1.slim.min.js""></script>
+            <script src="../../assets/js/bootstrap.bundle.min.js""></script>
+            <script src="../../assets/js/main.min.js""></script>
+                <script src="../../search/main.js" defer></script>
+
+    </body>
+
+</html>

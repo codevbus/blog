@@ -1,0 +1,194 @@
+<!doctype html>
+<html>
+    <head>
+                <title>In Defense of DevOps - Mike Vanbuskirk</title>
+
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+            
+            
+            
+
+            
+                <link  rel="icon" type="image/x-icon" href="../../assets/favicon.ico">
+            
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+            <link rel="stylesheet" href="../../assets/css/main.min.css">
+                <script src="../../search/main.js"></script>
+
+            
+                
+            
+    </head>
+
+    <body>
+        <div class="container py-3">
+            <header>
+                    <!-- block header -->
+<nav class="navbar navbar-expand-xl border-bottom">
+    <div class="container-fluid">
+        
+            <img class="logo" src="../../assets/avatar.jpg">
+        
+
+        
+            <span class=" fs-4 title-color site-name" id="component-site-name" style="text-transform: uppercase;">Mike Vanbuskirk</span>
+        
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsMenu"
+            aria-controls="navbarsMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse flex-column ml-auto" id="navbarsMenu">
+            <ul class="navbar-nav">
+
+                <!-- block menu -->
+                <li class="nav-item">
+                    <!-- block menu -->
+    
+        <li class="nav-item" id="component-menu">
+            <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="
+                            nav-link text-gray text-decoration-none" href="../">[Blog]</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="
+                            nav-link text-gray text-decoration-none" href="../..">[Home]</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="
+                            nav-link text-gray text-decoration-none" href="../../about/">[About]</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="
+                            nav-link text-gray text-decoration-none" href="../../publications/">[Publications]</a>
+                        </li>
+            </ul>
+        </li>
+<!-- endblock -->
+                </li>
+                <!-- endblock -->
+
+                <!-- block search -->
+                <li class="nav-item">
+                    <a class="collapsed" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        <div class="md-search-icon">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                    </a>
+                </li>
+                <!--  endblock -->
+
+                <!-- block source -->
+                <li class="nav-item">
+                    
+                </li>
+                <!--  endblock -->
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--  endblock -->
+            </header>
+
+            <main><!-- block search -->
+<div class="collapse" id="collapseExample">
+    <div role="search" class="search-box">
+        <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+            <input type="text" name="q" class="search-query"
+            placeholder="Search docs" title="Type search term here" />
+        </form>
+    </div>
+</div>
+<!-- endblock -->
+                    <!-- block content -->
+<section class="container post">
+    <article>
+        <header>
+            
+            
+        </header>
+        <p><p>Lately there seems to be a growing chorus within software engineering that DevOps is "dead", or at least an abject failure.</p>
+<p>I'd argue it is more important than ever before. Software delivery is an increasingly complex beast, fraught with security threats and requiring a pragmatic and nuanced approach to operational excellence. Engineering organizations cannot afford to maintain development teams with the attitude that they should not have to care at all about anything outside the scope of writing code.</p>
+<h2 id="when-did-we-get-so-precious-about-development-work">When Did We Get So Precious About Development Work?</h2>
+<figure>
+  <img src="/images/ben_kehoe_tweet.png" alt="Ben Kehoe's tweet about the 'new kingmakers theme' and developers.">
+</figure>
+
+<p>Devs saying that they shouldn't have to do ops or have any concern for the underlying infrastructure sounds like a familiar refrain... where have we all heard that before?</p>
+<figure>
+  <img src="/images/allspaw_hammond_slide.png" alt="Allspaw Hammond Slide">
+</figure>
+
+<p>Look familiar? It should.</p>
+<p>Here's a hint: <YouTube id="https://youtu.be/LdOe18KhtT4?t=221"></p>
+<p>It's from the original Allspaw/Hammond presentation on DevOps, way back in 2009.</p>
+<p>"Traditional thinking" was the anti-pattern; the old way of doing things that had Dev and Ops in separate silos, with devs only concerned about "shipping code" and ops staff making it run. If we're back to devs not needing to care about infrastructure and operational concerns, then it really feels like we've made a full-circle return to the waterfall days of development.</p>
+<p>Bridge builders do not get to claim ignorance as to the nature of cars and trucks, or the lead time required to make safe structural steel, and yet here we are.</p>
+<p>DevOps <strong>will</strong> be opinionated and force things on developers, because, well, some things aren't really optional...</p>
+<h2 id="devops-often-becomes-the-proxy-enforcer-of-security-policy">DevOps Often Becomes The Proxy Enforcer of Security Policy...</h2>
+<p>If you think the ratio of DevOps engineers to developers in your company is thin, have you looked at the ratio of security engineers to all other employees?</p>
+<p>Yeah...</p>
+<p>Thus, it is often left to DevOps teams building out workload and deployment systems to also be the proxy enforcer of security policy via these very systems.</p>
+<p>Security policies by nature tend to be very opinionated, and are generally viewed as being "in the way" of feature iteration. They also happen to be in the way for a very good reason:</p>
+<p><a href="https://blog.gitguardian.com/the-state-of-secrets-sprawl-2022/">https://blog.gitguardian.com/the-state-of-secrets-sprawl-2022/</a></p>
+<p>From their report:</p>
+<blockquote>
+<p>The data reveals that on average, in 2021, a typical company with 400 developers would discover 1,050 unique secrets leaked upon scanning its repositories and commits. With each secret detected in 13 different places on average, the amount of work required for remediation far exceeds current AppSec capabilities: with a security-to-developers ratio of 1:100, 1 AppSec engineer needs to handle 3,413 secrets occurrences on average.</p>
+</blockquote>
+<p>Yikes.</p>
+<p>No, we cannot make developers learn, or care about, something like Terraform, or whatever other ops tooling or process we try to convince everyone is needed. What we <strong>shouldn't</strong> have to do is justify the use of tools or processes that takes us to a more secure, more operationally excellent posture; even if it means some perceived inconvenience to developer productivity.</p>
+<p>I absolutely concur that the idea of a <a href="https://twitter.com/iamvlaaaaaaad/status/1534489514818686976?s=20&amp;t=DKztUBFm7eYEo9PoReOniw">platform team</a> ends up being <strong>too</strong> opinionated; the golden path turns into a fixed point-in-time lock-in that will never keep up with the pace of iteration by the parent platform provider.</p>
+<p>However, enforcing standards and secure software delivery is probably an opinion that would benefit the overall health(and continued existence of the business). Even something banal as getting resources named and tagged correctly can be important because...</p>
+<h2 id="and-the-torch-bearer-for-audit-compliance-as-well">... and the Torch-Bearer for Audit Compliance as well</h2>
+<p>Anyone that's ever been beholden to a compliance framework or regular audits knows that it is a time-consuming, nerve-wracking, stressful process. Auditors often ask for(as they should) very detailed, granular questions about specific processes and systems. These questions typically demand some form of paper trail(typically in the form of logs) that can establish time, date, and metadata for a particular event.</p>
+<p>A hypothetical audit request might read like:</p>
+<blockquote>
+<p>"According to the logs of this critical_datastore, Developer A accessed this piece of data. Please provide a timestamped log of your application control plane, showing that the developer followed the correct access pattern and used 2FA for authentication"</p>
+</blockquote>
+<p>Sure. No problem.</p>
+<blockquote>
+<p>Except there are 25 nodes that classify as "control planes".</p>
+<p>Why are some named with this scheme: "controlPlane-01", others named with: "ControlP2", and one just named "-07"???</p>
+<p>Ugh. Fine, no problem. I'll just look at the log aggregator where all these stream to.</p>
+<p>Ok no log aggregation, of course that was stupid to assume. Welp.</p>
+<p>I guess I'll just have to look at each node's logs individually.</p>
+<p>Ahahahahahahahahahaha why did I dare let hope's light illuminate the darkness only for it to be extinguished?</p>
+</blockquote>
+<p>Enforcing even the boring stuff like naming pays dividends later when it comes time to hopefully present auditors with a picture that your organization is at least making a good-faith effort to comply with the rules.</p>
+<h2 id="so-whats-the-answer">So What's The Answer?</h2>
+<p>I think DevOps teams should absolutely be out of the way when it comes to platform and implementation choice. If the product team A wants to use serverless infrastructure, product team B wants containers, and product team C just needs an S3 bucket to host pictures, so be it. DevOps should be able to provide modular, primitive infrastructure patterns that allow developers to take advantage of the infrastructure that best suits their needs.</p>
+<p><strong>However..</strong></p>
+<p>This cannot and should not imply that it's Wild West time. If product A's choice of serverless means there are extra development cycles needed to implement proper security controls and sane operational patterns then <strong>that's the cost of business continuity</strong> and developers are going to have to care about it whether it's part of their KPIs or not. It takes time to build even the most unobtrusive of guardrails in such a way that they are both <strong>unobtrusive and actually effective at their stated purpose.</strong></p>
+<p>These folks also <em>might</em> know a thing or two about the problem space:</p>
+<p><a href="https://itrevolution.com/accelerate-book/">https://itrevolution.com/accelerate-book/</a></p>
+<blockquote>
+<p>... "We speculate that this is due to low-performing teams working to increase tempo but not investing enough in building quality into the process. The result is larger deployment failures that take more time to restore service. High performers understand that they don’t have to trade speed for stability or vice versa, because by building quality in they get both."</p>
+</blockquote></p>
+    </article>
+</section>
+<!-- endblock -->
+            </main>
+
+            
+            
+
+            
+            
+        </div>
+
+            <script>var base_url = '../..';</script>
+            <script src="../../assets/js/jquery-3.3.1.slim.min.js""></script>
+            <script src="../../assets/js/bootstrap.bundle.min.js""></script>
+            <script src="../../assets/js/main.min.js""></script>
+                <script src="../../search/main.js" defer></script>
+
+    </body>
+
+</html>

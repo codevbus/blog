@@ -1,0 +1,449 @@
+<!doctype html>
+<html>
+    <head>
+                <title>deploy aws lambda functions with aws-sam-cli and travis-ci: part 2 - Mike Vanbuskirk</title>
+
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+            
+            
+            
+
+            
+                <link  rel="icon" type="image/x-icon" href="../../assets/favicon.ico">
+            
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+            <link rel="stylesheet" href="../../assets/css/main.min.css">
+                <script src="../../search/main.js"></script>
+
+            
+                
+            
+    </head>
+
+    <body>
+        <div class="container py-3">
+            <header>
+                    <!-- block header -->
+<nav class="navbar navbar-expand-xl border-bottom">
+    <div class="container-fluid">
+        
+            <img class="logo" src="../../assets/avatar.jpg">
+        
+
+        
+            <span class=" fs-4 title-color site-name" id="component-site-name" style="text-transform: uppercase;">Mike Vanbuskirk</span>
+        
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsMenu"
+            aria-controls="navbarsMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse flex-column ml-auto" id="navbarsMenu">
+            <ul class="navbar-nav">
+
+                <!-- block menu -->
+                <li class="nav-item">
+                    <!-- block menu -->
+    
+        <li class="nav-item" id="component-menu">
+            <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="
+                            nav-link text-gray text-decoration-none" href="../">[Blog]</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="
+                            nav-link text-gray text-decoration-none" href="../..">[Home]</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="
+                            nav-link text-gray text-decoration-none" href="../../about/">[About]</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="
+                            nav-link text-gray text-decoration-none" href="../../publications/">[Publications]</a>
+                        </li>
+            </ul>
+        </li>
+<!-- endblock -->
+                </li>
+                <!-- endblock -->
+
+                <!-- block search -->
+                <li class="nav-item">
+                    <a class="collapsed" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        <div class="md-search-icon">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                    </a>
+                </li>
+                <!--  endblock -->
+
+                <!-- block source -->
+                <li class="nav-item">
+                    
+                </li>
+                <!--  endblock -->
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--  endblock -->
+            </header>
+
+            <main><!-- block search -->
+<div class="collapse" id="collapseExample">
+    <div role="search" class="search-box">
+        <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+            <input type="text" name="q" class="search-query"
+            placeholder="Search docs" title="Type search term here" />
+        </form>
+    </div>
+</div>
+<!-- endblock -->
+                    <!-- block content -->
+<section class="container post">
+    <article>
+        <header>
+            
+            
+        </header>
+        <p><p>In part 1 of this series, we created a basic serverless function with AWS Lambda.
+In part 2, we're going to use GitHub and Travis-CI to set up a continuous integration workflow.</p>
+<p>If you completed <a href="https://mikevanbuskirk.io/posts/deploy-aws-lambda-functions-with-aws-sam-cli-and-travis-ci-1/">part 1</a> successfully,
+you should have a working AWS Lambda function. However, it's only exists locally on the machine it
+was developed on. What if we want to deploy it to an AWS account? With an S3 bucket available, we
+could simply use <code>sam package</code> and <code>sam deploy</code> to create a deployment package for, and deploy our
+Lambda function to AWS.</p>
+<p>Boom. Done.</p>
+<p>That's not really sufficient for modern software/infrastructure deployment though, is it? Testing
+and validation is(or at least should be) a critical part of any deployment. <em>How</em> a system will
+function in a live environment should be determined <em>before</em> it ever hits that environment. It may
+not be possible to 100% simulate every scenario, or validate every piece of logic, but modern tools
+help us get close.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>It's assumed that we've got all the prerequisites from part 1, as well as the working function ready
+for deployment.</p>
+<p>It will probably be helpful to have a quick read of the introductory Travis-CI docs:</p>
+<ul>
+<li><a href="https://docs.travis-ci.com/user/for-beginners">Core Concepts For Beginners</a> - Great intro on core
+concepts of CI and Travis.</li>
+<li><a href="https://docs.travis-ci.com/user/getting-started">Getting Started Guide</a> - Getting started using
+Travis.</li>
+</ul>
+<p>It might also be helpful to install the Travis gem. If you don't have Ruby gems, start here:
+<a href="https://rubygems.org/">https://rubygems.org/</a>. You can then do <code>gem install travis</code> to have a local cli utility available
+as needed as you work with Travis-CI.</p>
+<p>Let's go ahead and get started.</p>
+<h2 id="what-are-we-doing-whycont">What Are We Doing? Why?(cont.)</h2>
+<p>Continuing the theme of part 1, we're setting up a CI testing and deployment workflow for serverless
+functions using AWS Lambda, Github, and Travis-CI.</p>
+<p>In part 2, we'll check in our code to the Github repo we've got set up. Then we're going to be setting
+up a couple AWS resources for Travis-CI and sam to use for deployment. Finally, we'll get
+everything configured and integrated together, so we've got an automated, CI deployment system!</p>
+<h2 id="commit-the-code-to-github">Commit The Code To Github</h2>
+<p>If you haven't already, you should commit your code to Github. You should already have a remote repo
+configured.</p>
+<p>Github provides an <a href="https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/">excellent
+tutorial</a>
+for getting set up if you need guidance.</p>
+<p>A key concept to remember(discussed in the Core Concepts documentation from Travis-CI) is that
+continuous integration(CI) is based on small code changes and frequent code check-ins. In fact,
+Travis-CI will run a build/deploy on <em>every</em> code check-in. This probably seems foreign, or even
+scary to someone used to more traditional development and deployment methodologies, but fear not!
+Once gotten used to, the paradigm of frequent deploys and frequent check-ins will become second
+nature, and ultimately allows faster feedback and iteration on code changes.</p>
+<p>Now we can move on to getting our AWS resources squared away so Travis-CI can run successful
+deployments.</p>
+<h2 id="deploy-your-aws-resources">Deploy Your AWS Resources</h2>
+<p>Before we can utilize Travis-CI to push our deployments, we need to setup three pieces of AWS
+infrastructure.</p>
+<p>Specifically, we'll be deploying an S3 bucket, an IAM user, and an IAM role. The S3 bucket will be used to upload
+code artifacts to via aws-sam-cli. The IAM user will be utilized by Travis-CI to interact with
+and create AWS resources, and the IAM role will be used by Lambda to query EC2 resources.</p>
+<p>I'm a big proponent of infrastructure as code, and I'd generally reach for something like Terraform
+or Cloudformation to deploy these resources. <em>However</em>, I want to keep this simple and focused on
+the CI integration, so we'll deploy these resources manually via the AWS console.</p>
+<p>Log in to your AWS account. Start with creating a basic S3 bucket with default options. Choose
+a unique name and save it for later.</p>
+<p>Next, we need to set up an IAM role. IAM roles are similar to IAM users, <em>except</em> they are
+designed, generally, to be used/assumed by services and non-human entities. They are an incredibly
+useful way to delegate permissions/access to your applications and services <em>without</em> having to
+store traditional credentials.</p>
+<p>In this specific case, the IAM role will be assumed by the AWS Lambda service so that your function
+has the neccessary permissions to carry out whatever actions it needs to. The permissions that you
+attach to the role will vary depending on the purpose of the function. If you're using the sample
+function I've provided, then some basic "Read" permissions on EC2 resources will be suffice.</p>
+<p>Go to the IAM console, and create a new role. Choose "Lambda" for the service. For the policy, AWS
+actually provides an existing policy we can use. Choose "AmazonEC2ReadOnlyAccess". On the "Review"
+screen, ensure everything looks correct. Give your a function a name that at least alludes to its
+primary function. I named mine <code>ReadEC2StatusLambda</code>. Be sure to save the role ARN for later, as
+you'll need it for the IAM user policy.</p>
+<p>Finally, we need to create an IAM user that Travis-CI can utilize to integrate with AWS. From the
+IAM console, you will need to navigate to "Users", where you view existing users, as well as create
+a new one. Go ahead and hit the "Add User" button. Start by giving the user a meaningful name that
+will make it easy to identify its purpose, like: <code>TravisServerlessDeploymentUser</code>. This will be a
+"service account", so for "Access Type", we're only going to choose "programmatic access".</p>
+<p>For permissions, choose "Attach existing policies directly", then hit the "Create policy" button.
+Choose the "JSON" tab, and enter the following into the policy editor:</p>
+<pre><code class="language-json">{
+    &quot;Version&quot;: &quot;2012-10-17&quot;,
+    &quot;Statement&quot;: [
+        {
+            &quot;Sid&quot;: &quot;AllowListArtifactBucket&quot;,
+            &quot;Effect&quot;: &quot;Allow&quot;,
+            &quot;Action&quot;: &quot;s3:ListBucket&quot;,
+            &quot;Resource&quot;: &quot;arn:aws:s3:::&lt;your-bucket-name-here&gt;&quot;
+        },
+        {
+            &quot;Sid&quot;: &quot;AllowArtifactBucketUse&quot;,
+            &quot;Effect&quot;: &quot;Allow&quot;,
+            &quot;Action&quot;: [
+                &quot;s3:PutObjectAcl&quot;,
+                &quot;s3:PutObject&quot;,
+                &quot;s3:GetObjectAcl&quot;,
+                &quot;s3:GetObject&quot;,
+                &quot;s3:DeleteObject&quot;
+            ],
+            &quot;Resource&quot;: &quot;arn:aws:s3:::&lt;your-bucket-name-here&gt;/*&quot;
+        },
+        {
+            &quot;Sid&quot;: &quot;AllowLambdaAll&quot;,
+            &quot;Effect&quot;: &quot;Allow&quot;,
+            &quot;Action&quot;: &quot;lambda:*&quot;,
+            &quot;Resource&quot;: &quot;*&quot;
+        },
+        {
+            &quot;Sid&quot;: &quot;AllowCloudFormationAll&quot;,
+            &quot;Effect&quot;: &quot;Allow&quot;,
+            &quot;Action&quot;: &quot;cloudformation:*&quot;,
+            &quot;Resource&quot;: &quot;*&quot;
+        },
+        {
+          &quot;Sid&quot;: &quot;AllowIAMListPolicies&quot;,
+          &quot;Effect&quot;: &quot;Allow&quot;,
+          &quot;Action&quot;: &quot;iam:ListPolicies&quot;,
+          &quot;Resource&quot;: &quot;*&quot;
+        },
+        {
+          &quot;Sid&quot;: &quot;AllowPassLambdaRole&quot;,
+          &quot;Effect&quot;: &quot;Allow&quot;,
+          &quot;Action&quot;: &quot;iam:PassRole&quot;,
+          &quot;Resource&quot;: &quot;&lt;your-role-arn-here&gt;&quot;
+        }
+    ]
+}
+</code></pre>
+<p>Give the policy a meaningful name, similar to the IAM user you created previously. Be sure to
+replace both instances of <code>&lt;your-bucket-name-here&gt;</code> with the name of the bucket you created
+previously. You will also need to replace <code>&lt;your-role-arn-here&gt;</code> with the ARN of the role you
+generated in the previous step.</p>
+<p>Review the policy and save it. Afterwards you'll be returned to the user
+creation process. Hit "refresh" on the policy list, and search for the policy you just
+created. Select the policy, and proceed to "Review". If everything looks good, click "Create User".</p>
+<p>On the next screen, you'll be shown the access key and secret key. <strong>Make sure</strong> you save these in
+a safe place: this will be the <strong>only</strong> time you are shown them, and we'll need them for Travis-CI
+integration.</p>
+<p>Now we can move on to configuring our Travis-CI integration.</p>
+<h2 id="configure-travis-ci-integration">Configure Travis-CI Integration</h2>
+<p>In Part 1 of this series, some basic prerequisites were laid out, including an account on both
+GitHub and Travis-CI.</p>
+<p>Signing in to Travis-CI with your GitHub account, via OAuth, should make all your repositories
+available for Travis to integrate with.</p>
+<p>Check the <a href="https://docs.travis-ci.com/user/getting-started/">Getting Started</a> documentation if you
+need help.</p>
+<p>Once you get logged in to Travis-CI, you'll need to enable it for the specific respository you're
+trying to integrate with. Under your "Profile", it will list all your public repositories. If you
+want to integrate with private repositories, it requires a paid subscription on their .com site.
+Once that's complete, you now have working Travis-CI integration!</p>
+<p>The central component required for Travis-CI is the config file: <code>.travis-ci.yml</code>. This is a YAML
+dotfile that provides a variety of configuration options, which tell Travis "how" to build your
+software.</p>
+<p>Rather than provide an exhaustive dive on every possible option(of which there are <em>many</em>), I'll
+provide the basic file I used for this project, and explain the relevant bits. I highly suggest
+taking the time to go through the official Travis-CI documentation to familiarize yourself with the
+options available, as well as the high-level concepts of how it operates.</p>
+<p>My configuration file is as follows:</p>
+<pre><code class="language-yaml">language: python
+python:
+- '2.7'
+branches:
+  only: master
+install:
+- pip install awscli
+- pip install aws-sam-cli
+script:
+- sam validate
+- sam package --template-file template.yaml --s3-bucket &lt;your-bucket-name&gt; --output-template-file packaged.yaml
+deploy:
+  provider: script
+  script: sam deploy --template-file packaged.yaml --stack-name travis-serverless-test
+  skip_cleanup: true
+  on:
+    branch: master
+notifications:
+  email:
+    on_failure: always
+env:
+  global:
+  - AWS_DEFAULT_REGION=us-east-2
+  - secure: &lt;obfuscated AWS Access Key&gt;
+  - secure: &lt;obfuscated AWS Secret Key&gt;
+</code></pre>
+<p>Let's take a walk through the configuration:</p>
+<pre><code class="language-yaml">language: python
+</code></pre>
+<p>The language setting specifies the build environment that Travis uses for the
+project. Since we need to install <code>awscli</code> and <code>aws-sam-cli</code> via pip, Python is the natural choice.</p>
+<pre><code class="language-yaml">python:
+- '2.7'
+</code></pre>
+<p>Defines what version of Python the project uses. In this case, due to a dependency with
+<code>aws-sam-cli</code>, we need Python 2.</p>
+<pre><code class="language-yaml">branches:
+  only: master
+</code></pre>
+<p>This setting ensures that builds are only triggered on commits to the "master" branch of the repo.</p>
+<pre><code class="language-yaml">install:
+- pip install awscli
+- pip install aws-sam-cli
+</code></pre>
+<p>The "install" is the step where we install the packages/dependencies needed for our build. In this
+example, we use the Pip tool to install <code>awscli</code> and <code>aws-sam-cli</code>.</p>
+<pre><code class="language-yaml">script:
+- sam validate
+- sam package --template-file template.yaml --s3-bucket &lt;your-bucket-name&gt; --output-template-file packaged.yaml
+</code></pre>
+<p>The "script" block is where the default build steps can be overridden. In this case, we call the
+<code>sam validate</code> command from the <code>aws-sam-cli</code> package to validate our SAM template, then <code>sam
+package</code> to build our function into a deployable artifact. Note that <code>&lt;your-bucket-name&gt;</code> should be
+replaced with the name of the S3 bucket that was created earlier in the tutorial. This is where the
+packaged deployment artifact is stored. Also note the <code>--output-template-file packaged.yaml</code>. This
+is a YAML file that will be utilized by the deployment step.</p>
+<pre><code class="language-yaml">deploy:
+  provider: script
+  script: sam deploy --template-file packaged.yaml --stack-name travis-serverless-test
+  skip_cleanup: true
+  on:
+    branch: master
+</code></pre>
+<p>The "deploy" step is where we actually deploy our code to whatever provider we've
+defined. Travis-CI supports many different providers
+directly: <a href="https://docs.travis-ci.com/user/deployment/#Supported-Providers">https://docs.travis-ci.com/user/deployment/#Supported-Providers</a>.</p>
+<p>In this case we're using the generic <code>script</code> provider, which passes whatever build artifacts
+we generated in our build step to custom scripts or commands. Our command is <code>sam deploy</code>, which
+references the <code>packaged.yaml</code> artifact from the build step, as well as defines the name of the "stack".
+I've chosen <code>travis-serverless-test</code>, but feel free to employ whatever naming scheme you choose.
+This will actually be the name of a CloudFormation stack that the sam tool creates to deploy the
+Lambda function. <code>skip_cleanup: true</code> prevents Travis-CI from deleting any changes made during the
+build. <code>on: branch: master</code> ensures that deployments only occur on changes to the master branch.
+A possible configuration would be to allow builds on all branches, but deploys only on "master".</p>
+<pre><code class="language-yaml">notifications:
+  email:
+    on_failure: always
+</code></pre>
+<p>Notifications defines how you are notified when things occur during the course of
+a build/deployment. In this example I've configured it notify via email whenever there is a failure.</p>
+<pre><code class="language-yaml">env:
+  global:
+  - AWS_DEFAULT_REGION=&lt;your-aws-region&gt;
+  - secure: &lt;obfuscated AWS Access Key&gt;
+  - secure: &lt;obfuscated AWS Secret Key&gt;
+</code></pre>
+<p>The "env" block is where environment variables are defined. These are variables that can be made
+available for any stage of the process. I highly recommend reading the official docs:
+<a href="https://docs.travis-ci.com/user/environment-variables/">https://docs.travis-ci.com/user/environment-variables/</a>. Environment variables are a critical
+component of most CI systems, and familiarity with them will be a benefit going forward.</p>
+<p>For this particular use case, we need 3 specific environment variables defined:</p>
+<ul>
+<li>
+<p><code>AWS_DEFAULT_REGION</code> - Defines which region we are deploying resources to, and is required by
+the <code>aws-sam-cli</code> tool. I use <code>us-east-2</code>. You'll want to choose the nearest region that has the Lambda
+and CloudFormation services available.</p>
+</li>
+<li>
+<p><code>secure</code> - These are secure(encrypted) variables. In this particular case, we're using them to
+store the credentials of the IAM user we created previously. Again, the Travis-CI documentation:
+<a href="https://docs.travis-ci.com/user/environment-variables/#Defining-encrypted-variables-in-.travis.yml">https://docs.travis-ci.com/user/environment-variables/#Defining-encrypted-variables-in-.travis.yml</a>
+provides a great resource to explain how.</p>
+</li>
+</ul>
+<p>In this case, I used the <code>travis</code> gem to add encrypted variables to my <code>.travis-ci.yml</code> file. If
+you're worried about sensitive credentials being stored in your shell history, most shells will not
+write a command to the hist file if you prepend them with a space.</p>
+<p>You can also add the variables via the Travis-CI site, where they will be obfuscated. However they
+will show up in the deployment log. I highly recommend using the gem method described above.</p>
+<p>Now Travis-CI is configured, and we're ready to deploy our code.</p>
+<h2 id="deploy-your-function">Deploy Your Function</h2>
+<p>Your project directory should look fairly similar to this(not counting <code>.git*</code> files):</p>
+<pre><code>get-active-ec2-instances
+|-- .travis.yml
+|-- README.md
+|-- event.json
+|-- getinstances
+|   |-- __init__.py
+|   `-- getinstances.py
+`-- template.yaml
+</code></pre>
+<p>If it looks slightly different, that's ok. As long as you have, at a bare minimum,
+a <code>template.yaml</code> and a <code>.travis-ci.yml</code> file, as well as your function, you should be good to go.</p>
+<p>At this point, if you commit and push your code to GitHub, it should trigger a job in Travis-CI. If
+you navigate to the Travis-CI site, the UI should show your repository and job status. Pay attention
+to the "Job Log", as that will show any errors or relevant output from the job.</p>
+<p>If everything went well: Congratulations! You just did a CI deployment of a serverless function!</p>
+<p>If you get any errors, check the output of the log for clues as to the root cause.
+Travis-CI provides some documentation on <a href="https://docs.travis-ci.com/user/common-build-problems/">common failures as well</a>.</p>
+<p>The last step we'll do is verify our Lambda function deployed correctly, via the AWS console.</p>
+<h2 id="verify-it-works">Verify It Works</h2>
+<p>Now it's time to make sure everything worked as it should have. Log in to your AWS account console,
+and navigate to the "Lambda" service under "Compute". Make sure you're in the correct region(top
+right). You should see your function. If the name has additional alphanumeric characters appended to
+it, that's perfectly normal. The sam tool appends a unique ID to every function/stack it deploys.</p>
+<p>Click on your function. At the top of the interface, you'll see a "Test" button next to a drop-down
+menu that says <em>Select a test event..</em></p>
+<p>Test events provide simulated JSON payloads from various events in AWS that are used to trigger
+Lambda functions. Go ahead and choose "Scheduled Event" from the "Event Template" drop down. Name
+your event something meaningful like "TestServerlessEvent".</p>
+<p>Once you've saved the event, click "Test". Depending on your function, you'll see the output
+generated in the logs, or sent somewhere. In the case of the example provided in the tutorial, it
+should show a JSON block listing active EC2 instances.</p>
+<h2 id="wrap-up">Wrap Up</h2>
+<p>I'm hopeful this article series has provided at least a foundation for everyone to start thinking
+about ways to streamline serverless development and deployment.</p>
+<p>Some potential ideas to build on this project:</p>
+<ul>
+<li>Use the built-in Travis-CI Lambda provider.</li>
+<li>Add an API gateway to the project.</li>
+<li>Create a more complex commit/merge workflow for builds.</li>
+<li>Add unit-testing and code-coverage to builds.</li>
+<li>Add integration and functional testing to verify deployments.</li>
+</ul>
+<p>Comments? Questions? Issues? Please post in the comments.</p>
+<p>Until next time!</p></p>
+    </article>
+</section>
+<!-- endblock -->
+            </main>
+
+            
+            
+
+            
+            
+        </div>
+
+            <script>var base_url = '../..';</script>
+            <script src="../../assets/js/jquery-3.3.1.slim.min.js""></script>
+            <script src="../../assets/js/bootstrap.bundle.min.js""></script>
+            <script src="../../assets/js/main.min.js""></script>
+                <script src="../../search/main.js" defer></script>
+
+    </body>
+
+</html>

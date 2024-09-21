@@ -1,0 +1,246 @@
+<!doctype html>
+<html>
+    <head>
+                <title>DevSecOps: Add Docker Image Scanning To Your CI/CD Pipeline - Mike Vanbuskirk</title>
+
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+            
+            
+            
+
+            
+                <link  rel="icon" type="image/x-icon" href="../../assets/favicon.ico">
+            
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+            <link rel="stylesheet" href="../../assets/css/main.min.css">
+                <script src="../../search/main.js"></script>
+
+            
+                
+            
+    </head>
+
+    <body>
+        <div class="container py-3">
+            <header>
+                    <!-- block header -->
+<nav class="navbar navbar-expand-xl border-bottom">
+    <div class="container-fluid">
+        
+            <img class="logo" src="../../assets/avatar.jpg">
+        
+
+        
+            <span class=" fs-4 title-color site-name" id="component-site-name" style="text-transform: uppercase;">Mike Vanbuskirk</span>
+        
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsMenu"
+            aria-controls="navbarsMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse flex-column ml-auto" id="navbarsMenu">
+            <ul class="navbar-nav">
+
+                <!-- block menu -->
+                <li class="nav-item">
+                    <!-- block menu -->
+    
+        <li class="nav-item" id="component-menu">
+            <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="
+                            nav-link text-gray text-decoration-none" href="../">[Blog]</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="
+                            nav-link text-gray text-decoration-none" href="../..">[Home]</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="
+                            nav-link text-gray text-decoration-none" href="../../about/">[About]</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="
+                            nav-link text-gray text-decoration-none" href="../../publications/">[Publications]</a>
+                        </li>
+            </ul>
+        </li>
+<!-- endblock -->
+                </li>
+                <!-- endblock -->
+
+                <!-- block search -->
+                <li class="nav-item">
+                    <a class="collapsed" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                        <div class="md-search-icon">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </div>
+                    </a>
+                </li>
+                <!--  endblock -->
+
+                <!-- block source -->
+                <li class="nav-item">
+                    
+                </li>
+                <!--  endblock -->
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--  endblock -->
+            </header>
+
+            <main><!-- block search -->
+<div class="collapse" id="collapseExample">
+    <div role="search" class="search-box">
+        <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+            <input type="text" name="q" class="search-query"
+            placeholder="Search docs" title="Type search term here" />
+        </form>
+    </div>
+</div>
+<!-- endblock -->
+                    <!-- block content -->
+<section class="container post">
+    <article>
+        <header>
+            
+            
+        </header>
+        <p><p>It's been over a year since I've last posted anything to the blog that wasn't commissioned writing. Maintaining consistency in writing definitely falls under a "hard" thing for me.</p>
+<p>I think to get 2022 started right, I'll start with a short technical how-to. I've found others to be immensely helpful, so I enjoy any opportunity to contribute back to the same ecosystem.</p>
+<p>This post will cover using <a href="https://github.com/aquasecurity/trivy">trivy</a> and <a href="https://github.com/features/actions">GithHub Actions</a> to add security scanning to Docker-based development workflows.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>A GitHub account</li>
+<li>Comfortable with Git and Docker workflows.</li>
+<li>Familiarity with GitHub Actions and basic CI/CD concepts</li>
+<li>Basic knowledge of Flask/Python(feel free to substitute a different stack)</li>
+<li>An application that runs inside a Docker container(I'll be using a basic Flask app as an example)</li>
+</ul>
+<h2 id="the-why-devsecops">The "Why": DevSecOps</h2>
+<p>Anyone that's lived through it will tell you that it's not fun to find a security vulnerability in a live production SLA environment. Customer data is potentially at risk, and the future of the company may be in doubt.</p>
+<p>DevSecOps is a growing culture within DevOps that aims to shift more of the responsibility and implementation duty of security "left" in the software development lifecycle(SDLC). Imagine the life of an application, starting with design and the first lines of code written on the left of the timeline, and the final, live application on the right. The further left that security issues can be detected and remediated means fixes are easier to implement and less costly.</p>
+<p>Developers working with Docker-based applications will often grab base images from public repositories without much thought as to the source. Unfortunately there have been multiple examples of <a href="https://www.trendmicro.com/vinfo/us/security/news/virtualization-and-cloud/malicious-docker-hub-container-images-cryptocurrency-mining">public images being compromised by malicious actors</a>. The good news is that DevOps teams can implement tools to detect and prevent compromise without having expend much effort on implementation. <a href="https://www.aquasec.com/products/trivy/">Trivy</a>, from Aquasec security, provides an open source tool that already has a <a href="https://github.com/aquasecurity/trivy-action">GitHub Action integration available</a>.</p>
+<h2 id="getting-started-the-app">Getting Started: The App</h2>
+<p>For simplicity's sake, I'll use the basic "Hello World" Flask app from the <a href="https://flask.palletsprojects.com/en/2.0.x/quickstart/">Flask quickstart</a>.</p>
+<p>My basic Dockerfile is as follows:</p>
+<pre><code class="language-dockerfile">FROM python:3.9
+
+COPY requirements.txt requirements.txt
+
+RUN pip install -r requirements.txt
+
+COPY app.py app.py
+
+ENV FLASK_APP=&quot;hello&quot;
+
+CMD [&quot;python&quot;, &quot;app.py&quot;]
+</code></pre>
+<h2 id="github-actions-setup">GitHub Actions Setup</h2>
+<p>With GitHub Actions, we have access to a fully-featured CI/CD toolchain without needing to setup, deploy, and administer our own CI/CD infrastructure. I highly recommend <a href="https://docs.github.com/en/actions/learn-github-actions">checking out their docs</a> if you're not familiar.</p>
+<p>Similar to other solutions, GitHub Actions uses YAML files to configure CI/CD pipelines. For this example, we'll use <code>.github/workflows/main.yml</code>.</p>
+<p>Start by creating a basic definition file that will allow the Docker container to be built in the pipeline:</p>
+<pre><code class="language-yaml">name: build
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build the image
+        run: docker build -t codevbus/flask-app -f Dockerfile .
+</code></pre>
+<p>Once this file is pushed to the repository, any subsequent push or pull request to the <code>main</code> branch will trigger this workflow, which will build the Docker container based on the Dockerfile in the base directory.</p>
+<h2 id="adding-image-scanning-with-trivy">Adding image scanning with Trivy</h2>
+<p>The simple syntax of GitHub Actions configuration makes it easy to add additional steps to our workflow file. In this case, we'll be adding the Trivy vulnerability scanner:</p>
+<pre><code class="language-yaml">name: build
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build the image
+        run: docker build -t codevbus/flask-app -f Dockerfile .
+
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: codevbus/flask-app
+          format: 'table'
+          exit-code: '1'
+          ignore-unfixed: true
+          vuln-type: 'os,library'
+          severity: 'CRITICAL,HIGH'
+</code></pre>
+<p>Once this change is pushed to the repo, the next run of GitHub Actions will use the Trivy action to perform a vulnerability scan of your Docker image and application dependencies.</p>
+<p>Since I'm using a fairly up-to-date Python version and Docker container, and a very simple app, Trivy shows a clean bill of health:</p>
+<pre><code class="language-shell">codevbus/flask-app (debian 11.2)
+================================
+Total: 0 (HIGH: 0, CRITICAL: 0)
+
+
+Python (python-pkg)
+===================
+Total: 0 (HIGH: 0, CRITICAL: 0)
+</code></pre>
+<p>You can view this output by going to "Actions", clicking through the most recent workflow run, and expanding the log output for the "Run Trivy vulnerability scanner" step(as we defined in the <code>main.yml</code> file)</p>
+<p>If Trivy detected a vulnerability or issue of some kind, this line in the config:</p>
+<pre><code class="language-yaml">exit-code: '1'
+</code></pre>
+<p>ensures that a non-zero exit code is thrown and the action/workflow run will not succeed, throwing an obvious warning for further investigation.</p>
+<h2 id="wrap-up">Wrap-up</h2>
+<p>All done! You should now have a working CI/CD Docker-based development workflow with vulnerability scanning. The example I've provided is overly simple, but additional features could be added, such as commenting scan results to pull requests, or adding static code scanning.</p>
+<p>All example code and config is provided here: <a href="https://github.com/codevbus/flask-app">https://github.com/codevbus/flask-app</a></p>
+<p>Hopefully this has been helpful, happy hacking!</p></p>
+    </article>
+</section>
+<!-- endblock -->
+            </main>
+
+            
+            
+
+            
+            
+        </div>
+
+            <script>var base_url = '../..';</script>
+            <script src="../../assets/js/jquery-3.3.1.slim.min.js""></script>
+            <script src="../../assets/js/bootstrap.bundle.min.js""></script>
+            <script src="../../assets/js/main.min.js""></script>
+                <script src="../../search/main.js" defer></script>
+
+    </body>
+
+</html>

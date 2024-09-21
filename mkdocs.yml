@@ -1,0 +1,16 @@
+site_name: Mike Vanbuskirk
+copyright: Mike Vanbuskirk
+nav:
+  - Blog: posts/index.md
+  - Home: index.md
+  - About: about.md
+  - Publications: publications.md
+theme:
+  name: null
+  custom_dir: /home/mike/build/mkdocs-simple-blog/mkdocs_simple_blog/
+  favicon: assets/favicon.ico
+  logo: assets/avatar.jpg
+  components:
+    title: false
+    preview: false
+    footer: false
