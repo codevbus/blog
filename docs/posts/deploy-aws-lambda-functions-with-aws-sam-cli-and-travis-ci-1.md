@@ -226,16 +226,14 @@ These events function similar to the Linux cron system, and fire on pre-defined 
 
 Run the following command in the working directory of your repo:
 
-```
-sam local generate-event schedule > event.json
-```
+``` sam local generate-event schedule > event.json```
 
 The output is saved in the `event.json` file, so that it can be re-used for function invocation as
 needed.
 
 At this point, this is what the folder structure of my project repo looks like:
 
-```
+```bash
 get-active-ec2-instances
 |-- README.md
 |-- event.json
@@ -255,9 +253,7 @@ functions to AWS and testing them live to see if they work correctly.
 
 Run the following command in the working directory of your repo:
 
-```
-sam local invoke "GetInstances" -e event.json
-```
+``` sam local invoke "GetInstances" -e event.json ```
 
 If this is your first invocation with this particular runtime, the tool will take some time to
 download the Docker image from the remote repo. After the tool reports the request ID, and

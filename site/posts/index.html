@@ -1,178 +1,964 @@
-<!doctype html>
-<html>
-    <head>
-                <title>Blog - Mike Vanbuskirk</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.0, mkdocs-terminal-4.6.0">
+     
+     
+    
+    <link rel="canonical" href="http://127.0.0.1/posts/"><link rel="icon" type="image/png" sizes="192x192" href="../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon-32x32.png" />
 
-            <meta charset="utf-8">
-            <meta http-equiv="X-UA-Compatible" content="IE=edge">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-            
-            
-            
+    
+ 
+<title>Blog - Mike Vanbuskirk</title>
 
-            
-                <link  rel="icon" type="image/x-icon" href="../assets/favicon.ico">
-            
-            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700">
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-            <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-            <link rel="stylesheet" href="../assets/css/main.min.css">
-                <script src="../search/main.js"></script>
 
+<link href="../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../css/normalize.css" rel="stylesheet">
+<link href="../css/terminal.css" rel="stylesheet">
+<link href="../css/theme.css" rel="stylesheet">
+<link href="../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/default.min.css" rel="stylesheet">  
+    
+    
+
+    
+    
+    
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/highlight.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/languages/bash.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/languages/python.min.js"></script>
+    
+    <script src="../docs/overrides/highlight.js"></script>
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="http://127.0.0.1/" class="no-style">Mike Vanbuskirk</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href=".." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">Home</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="./" class="menu-item active" property="item" typeof="WebPage">
+                        <span property="name">Blog</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="../about/" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">About</span>
+                    </a>
+                    <meta property="position" content="2">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="../projects/" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">Projects</span>
+                    </a>
+                    <meta property="position" content="3">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="../publications/" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">Publications</span>
+                    </a>
+                    <meta property="position" content="4">
+                </li>
+                
+                    
+                    
+                    
+            </ul>
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="..">Home</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        <span class="
+
+    terminal-mkdocs-side-nav-item--active">Blog</span>
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../about/">About</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../projects/">Projects</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../publications/">Publications</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#posts">posts</a></li>
+        
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+    
+    
+    
+    
+    
+
+<section id="mkdocs-terminal-content">
+    <h1 id="posts">posts</h1>
+<p>
+
+
+<style>
+    .md-typeset .blog-post:first-of-type h3 {
+        margin-top: 0;
+    }
+
+    .md-typeset .blog-post-title {
+        margin-bottom: 0;
+    }
+
+    .md-typeset .blog-post-extra {
+        color: var(--md-default-fg-color--light);
+    }
+
+    .md-typeset .blog-center {
+        text-align: center;
+    }
+
+    .md-typeset .blog-pagination {
+        display: inline-block;
+        margin-top: 20px;
+    }
+
+    .md-typeset .blog-pagination a {
+        color: var(--md-typeset-color);
+        float: left;
+        padding: .25em 1em;
+        text-decoration: none;
+        border-radius: 1em;
+        margin-left: .25em;
+        margin-right: .25em;
+        transition: all .15s ease-in-out;
+    }
+
+    .md-typeset .blog-pagination a.active {
+        background-color: var(--md-typeset-a-color);
+        color: white;
+        font-weight: bold;
+    }
+
+    .md-typeset .blog-pagination a:hover:not(.active) {
+        background-color: #dddddda1;
+    }
+
+    .md-typeset .blog-hidden {
+        display: none;
+    }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <style>
+    .md-typeset .blogging-tags-grid {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 5px;
+    }
+
+    .md-typeset .blogging-tag {
+        color: var(--md-typeset-color);
+        background-color: var(--md-typeset-code-color);
+        white-space: nowrap;
+        display: block;
+    }
+
+    .md-typeset .blogging-tag code {
+        border-radius: 5px;
+    }
+</style>
+
+    
+
+
+
+
+
+
+
+
+<div class = "md-typeset">
+    <div class="pages">
+        
+            
+            <div class="page" id="page1">
+
+                
+                    
+                    
+                    
+                    
+
+                    
+                    
+
+                    
+                    
+                        
+                    
+                    
+                    <div class="blog-post">
+    <h3 class="blog-post-title">
+        <a class="link" href="http://127.0.0.1/posts/">Blog</a>
+    </h3>
+    
+    <p class="blog-post-description">
+        
+    </p>
+    <div class="blog-post-extra">
+        Published at: 9/21/24, 1:55 PM
+    </div>
+    <hr />
+</div>
+
+                    
+                
+                    
+                    
+                    
+                    
+
+                    
+                    
+
+                    
+                    
+                        
+                    
+                    
+                    <div class="blog-post">
+    <h3 class="blog-post-title">
+        <a class="link" href="http://127.0.0.1/posts/deploy-aws-lambda-functions-with-aws-sam-cli-and-travis-ci-1/">deploy aws lambda functions with aws-sam-cli and travis-ci: part 1</a>
+    </h3>
+    
+    <p class="blog-post-description">
+        
+    </p>
+    <div class="blog-post-extra">
+        Published at: 9/21/24, 1:55 PM
+    </div>
+    <hr />
+</div>
+
+                    
+                
+                    
+                    
+                    
+                    
+
+                    
+                    
+
+                    
+                    
+                        
+                    
+                    
+                    <div class="blog-post">
+    <h3 class="blog-post-title">
+        <a class="link" href="http://127.0.0.1/posts/deploy-aws-lambda-with-travisci-2/">deploy aws lambda functions with aws-sam-cli and travis-ci: part 2</a>
+    </h3>
+    
+    <p class="blog-post-description">
+        
+    </p>
+    <div class="blog-post-extra">
+        Published at: 9/21/24, 1:55 PM
+    </div>
+    <hr />
+</div>
+
+                    
+                
+                    
+                    
+                    
+                    
+
+                    
+                    
+
+                    
+                    
+                        
+                    
+                    
+                    <div class="blog-post">
+    <h3 class="blog-post-title">
+        <a class="link" href="http://127.0.0.1/posts/devsecops-add-docker-image-scanning-to-your-cicd-pipeline/">DevSecOps: Add Docker Image Scanning To Your CI/CD Pipeline</a>
+    </h3>
+    
+    <p class="blog-post-description">
+        
+    </p>
+    <div class="blog-post-extra">
+        Published at: 9/21/24, 1:55 PM
+    </div>
+    <hr />
+</div>
+
+                    
+                
+                    
+                    
+                    
+                    
+
+                    
+                    
+
+                    
+                    
+                        
+                    
+                    
+                    <div class="blog-post">
+    <h3 class="blog-post-title">
+        <a class="link" href="http://127.0.0.1/posts/happy-fourth-2020/">Happy Fourth 2020</a>
+    </h3>
+    
+    <p class="blog-post-description">
+        
+    </p>
+    <div class="blog-post-extra">
+        Published at: 9/21/24, 1:55 PM
+    </div>
+    <hr />
+</div>
+
+                    
+                
+                    
+                    
+                    
+                    
+
+                    
+                    
+
+                    
+                    
+                        
+                    
+                    
+                    <div class="blog-post">
+    <h3 class="blog-post-title">
+        <a class="link" href="http://127.0.0.1/posts/how-i-auto-publish-posts/">how I auto publish posts</a>
+    </h3>
+    
+    <p class="blog-post-description">
+        
+    </p>
+    <div class="blog-post-extra">
+        Published at: 9/21/24, 1:55 PM
+    </div>
+    <hr />
+</div>
+
+                    
+                
+                    
+                    
+                    
+                    
+
+                    
+                    
+
+                    
+                    
+                        
+                    
+                    
+                    <div class="blog-post">
+    <h3 class="blog-post-title">
+        <a class="link" href="http://127.0.0.1/posts/in-defense-of-devops/">In Defense of DevOps</a>
+    </h3>
+    
+    <p class="blog-post-description">
+        
+    </p>
+    <div class="blog-post-extra">
+        Published at: 9/21/24, 1:55 PM
+    </div>
+    <hr />
+</div>
+
+                    
+                
+                    
+                    
+                    
+                    
+
+                    
+                    
+
+                    
+                    
+                        
+                    
+                    
+                    <div class="blog-post">
+    <h3 class="blog-post-title">
+        <a class="link" href="http://127.0.0.1/posts/its-been-awhile/">It&#39;s Been Awhile</a>
+    </h3>
+    
+    <p class="blog-post-description">
+        
+    </p>
+    <div class="blog-post-extra">
+        Published at: 9/21/24, 1:55 PM
+    </div>
+    <hr />
+</div>
+
+                    
+                
+                    
+                    
+                    
+                    
+
+                    
+                    
+
+                    
+                    
+                        
+                    
+                    
+                    <div class="blog-post">
+    <h3 class="blog-post-title">
+        <a class="link" href="http://127.0.0.1/posts/juneteenth/">juneteenth</a>
+    </h3>
+    
+    <p class="blog-post-description">
+        
+    </p>
+    <div class="blog-post-extra">
+        Published at: 9/21/24, 1:55 PM
+    </div>
+    <hr />
+</div>
+
+                    
+                
+                    
+                    
+                    
+                    
+
+                    
+                    
+
+                    
+                    
+                        
+                    
+                    
+                    <div class="blog-post">
+    <h3 class="blog-post-title">
+        <a class="link" href="http://127.0.0.1/posts/new-no-code-tutorial/">New No Code Tutorial Posted</a>
+    </h3>
+    
+    <p class="blog-post-description">
+        
+    </p>
+    <div class="blog-post-extra">
+        Published at: 9/21/24, 1:55 PM
+    </div>
+    <hr />
+</div>
+
+                    
+                
+            </div>
+        
+            
+            <div class="page" id="page2">
+
+                
+                    
+                    
+                    
+                    
+
+                    
+                    
+
+                    
+                    
+                        
+                    
+                    
+                    <div class="blog-post">
+    <h3 class="blog-post-title">
+        <a class="link" href="http://127.0.0.1/posts/new-site-launch/">New Site Launch</a>
+    </h3>
+    
+    <p class="blog-post-description">
+        
+    </p>
+    <div class="blog-post-extra">
+        Published at: 9/21/24, 1:55 PM
+    </div>
+    <hr />
+</div>
+
+                    
+                
+                    
+                    
+                    
+                    
+
+                    
+                    
+
+                    
+                    
+                        
+                    
+                    
+                    <div class="blog-post">
+    <h3 class="blog-post-title">
+        <a class="link" href="http://127.0.0.1/posts/pkm-redux/">pkm redux</a>
+    </h3>
+    
+    <p class="blog-post-description">
+        
+    </p>
+    <div class="blog-post-extra">
+        Published at: 9/21/24, 1:55 PM
+    </div>
+    <hr />
+</div>
+
+                    
+                
+                    
+                    
+                    
+                    
+
+                    
+                    
+
+                    
+                    
+                        
+                    
+                    
+                    <div class="blog-post">
+    <h3 class="blog-post-title">
+        <a class="link" href="http://127.0.0.1/posts/something-different/">something different</a>
+    </h3>
+    
+    <p class="blog-post-description">
+        
+    </p>
+    <div class="blog-post-extra">
+        Published at: 9/21/24, 1:55 PM
+    </div>
+    <hr />
+</div>
+
+                    
+                
+                    
+                    
+                    
+                    
+
+                    
+                    
+
+                    
+                    
+                        
+                    
+                    
+                    <div class="blog-post">
+    <h3 class="blog-post-title">
+        <a class="link" href="http://127.0.0.1/posts/terraform-backend-with-cloudformation/">deploy a terraform remote state backend with cloudformation</a>
+    </h3>
+    
+    <p class="blog-post-description">
+        
+    </p>
+    <div class="blog-post-extra">
+        Published at: 9/21/24, 1:55 PM
+    </div>
+    <hr />
+</div>
+
+                    
+                
+                    
+                    
+                    
+                    
+
+                    
+                    
+
+                    
+                    
+                        
+                    
+                    
+                    <div class="blog-post">
+    <h3 class="blog-post-title">
+        <a class="link" href="http://127.0.0.1/posts/the-verdict-is-in/">the verdict is in: remote work ftw</a>
+    </h3>
+    
+    <p class="blog-post-description">
+        
+    </p>
+    <div class="blog-post-extra">
+        Published at: 9/21/24, 1:55 PM
+    </div>
+    <hr />
+</div>
+
+                    
+                
+                    
+                    
+                    
+                    
+
+                    
+                    
+
+                    
+                    
+                        
+                    
+                    
+                    <div class="blog-post">
+    <h3 class="blog-post-title">
+        <a class="link" href="http://127.0.0.1/posts/welp-goals-are-hard/">Welp, Goals Are Hard</a>
+    </h3>
+    
+    <p class="blog-post-description">
+        
+    </p>
+    <div class="blog-post-extra">
+        Published at: 9/21/24, 1:55 PM
+    </div>
+    <hr />
+</div>
+
+                    
+                
+                    
+                    
+                    
+                    
+
+                    
+                    
+
+                    
+                    
+                        
+                    
+                    
+                    <div class="blog-post">
+    <h3 class="blog-post-title">
+        <a class="link" href="http://127.0.0.1/posts/what-i-use/">What I Use</a>
+    </h3>
+    
+    <p class="blog-post-description">
+        
+    </p>
+    <div class="blog-post-extra">
+        Published at: 9/21/24, 1:55 PM
+    </div>
+    <hr />
+</div>
+
+                    
+                
+            </div>
+        
+    </div>
+
+    <div class="blog-center ">
+        <div class="blog-pagination " id="blog-pagination">
             
                 
-            
-    </head>
-
-    <body>
-        <div class="container py-3">
-            <header>
-                    <!-- block header -->
-<nav class="navbar navbar-expand-xl border-bottom">
-    <div class="container-fluid">
-        
-            <img class="logo" src="../assets/avatar.jpg">
-        
-
-        
-            <span class=" fs-4 title-color site-name" id="component-site-name" style="text-transform: uppercase;">Mike Vanbuskirk</span>
-        
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsMenu"
-            aria-controls="navbarsMenu" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse flex-column ml-auto" id="navbarsMenu">
-            <ul class="navbar-nav">
-
-                <!-- block menu -->
-                <li class="nav-item">
-                    <!-- block menu -->
-    
-        <li class="nav-item" id="component-menu">
-            <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class=" active 
-                            nav-link text-gray text-decoration-none" href="./">[Blog]</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="
-                            nav-link text-gray text-decoration-none" href="..">[Home]</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="
-                            nav-link text-gray text-decoration-none" href="../about/">[About]</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="
-                            nav-link text-gray text-decoration-none" href="../publications/">[Publications]</a>
-                        </li>
-            </ul>
-        </li>
-<!-- endblock -->
-                </li>
-                <!-- endblock -->
-
-                <!-- block search -->
-                <li class="nav-item">
-                    <a class="collapsed" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                        <div class="md-search-icon">
-                            <i class="fa fa-search" aria-hidden="true"></i>
-                        </div>
-                    </a>
-                </li>
-                <!--  endblock -->
-
-                <!-- block source -->
-                <li class="nav-item">
                     
-                </li>
-                <!--  endblock -->
-            </ul>
+                
+                <a class="page-number" href="">1</a>
+            
+                
+                    
+                
+                <a class="page-number" href="#blog-p2">2</a>
+            
         </div>
+        
+            <div>Total <b>17</b> posts.</div>
+        
     </div>
-</nav>
-<!--  endblock -->
-            </header>
+</div></p>
+</section>
 
-            <main><!-- block search -->
-<div class="collapse" id="collapseExample">
-    <div role="search" class="search-box">
-        <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-            <input type="text" name="q" class="search-query"
-            placeholder="Search docs" title="Type search term here" />
-        </form>
-    </div>
-</div>
-<!-- endblock -->
-<div class="container py-3">
-    <article class="content">
-        <h1>Posts</h1>
-        <ul>
-            
-            <li><a href="/index.html">File('index.md', src_dir='/home/mike/projects/blog-mkdocs/docs', dest_dir='/home/mike/projects/blog-mkdocs/site', use_directory_urls=True, dest_uri='index.html', inclusion=InclusionLevel.INCLUDED)</a> </li>
-            
-            <li><a href="/about/index.html">File('about.md', src_dir='/home/mike/projects/blog-mkdocs/docs', dest_dir='/home/mike/projects/blog-mkdocs/site', use_directory_urls=True, dest_uri='about/index.html', inclusion=InclusionLevel.INCLUDED)</a> </li>
-            
-            <li><a href="/projects/index.html">File('projects.md', src_dir='/home/mike/projects/blog-mkdocs/docs', dest_dir='/home/mike/projects/blog-mkdocs/site', use_directory_urls=True, dest_uri='projects/index.html', inclusion=InclusionLevel.INCLUDED)</a> </li>
-            
-            <li><a href="/publications/index.html">File('publications.md', src_dir='/home/mike/projects/blog-mkdocs/docs', dest_dir='/home/mike/projects/blog-mkdocs/site', use_directory_urls=True, dest_uri='publications/index.html', inclusion=InclusionLevel.INCLUDED)</a> </li>
-            
-            <li><a href="/posts/index.html">File('posts/index.md', src_dir='/home/mike/projects/blog-mkdocs/docs', dest_dir='/home/mike/projects/blog-mkdocs/site', use_directory_urls=True, dest_uri='posts/index.html', inclusion=InclusionLevel.INCLUDED)</a> </li>
-            
-            <li><a href="/posts/deploy-aws-lambda-functions-with-aws-sam-cli-and-travis-ci-1/index.html">File('posts/deploy-aws-lambda-functions-with-aws-sam-cli-and-travis-ci-1.md', src_dir='/home/mike/projects/blog-mkdocs/docs', dest_dir='/home/mike/projects/blog-mkdocs/site', use_directory_urls=True, dest_uri='posts/deploy-aws-lambda-functions-with-aws-sam-cli-and-travis-ci-1/index.html', inclusion=InclusionLevel.INCLUDED)</a> </li>
-            
-            <li><a href="/posts/deploy-aws-lambda-with-travisci-2/index.html">File('posts/deploy-aws-lambda-with-travisci-2.md', src_dir='/home/mike/projects/blog-mkdocs/docs', dest_dir='/home/mike/projects/blog-mkdocs/site', use_directory_urls=True, dest_uri='posts/deploy-aws-lambda-with-travisci-2/index.html', inclusion=InclusionLevel.INCLUDED)</a> </li>
-            
-            <li><a href="/posts/devsecops-add-docker-image-scanning-to-your-cicd-pipeline/index.html">File('posts/devsecops-add-docker-image-scanning-to-your-cicd-pipeline.md', src_dir='/home/mike/projects/blog-mkdocs/docs', dest_dir='/home/mike/projects/blog-mkdocs/site', use_directory_urls=True, dest_uri='posts/devsecops-add-docker-image-scanning-to-your-cicd-pipeline/index.html', inclusion=InclusionLevel.INCLUDED)</a> </li>
-            
-            <li><a href="/posts/happy-fourth-2020/index.html">File('posts/happy-fourth-2020.md', src_dir='/home/mike/projects/blog-mkdocs/docs', dest_dir='/home/mike/projects/blog-mkdocs/site', use_directory_urls=True, dest_uri='posts/happy-fourth-2020/index.html', inclusion=InclusionLevel.INCLUDED)</a> </li>
-            
-            <li><a href="/posts/how-i-auto-publish-posts/index.html">File('posts/how-i-auto-publish-posts.md', src_dir='/home/mike/projects/blog-mkdocs/docs', dest_dir='/home/mike/projects/blog-mkdocs/site', use_directory_urls=True, dest_uri='posts/how-i-auto-publish-posts/index.html', inclusion=InclusionLevel.INCLUDED)</a> </li>
-            
-            <li><a href="/posts/in-defense-of-devops/index.html">File('posts/in-defense-of-devops.md', src_dir='/home/mike/projects/blog-mkdocs/docs', dest_dir='/home/mike/projects/blog-mkdocs/site', use_directory_urls=True, dest_uri='posts/in-defense-of-devops/index.html', inclusion=InclusionLevel.INCLUDED)</a> </li>
-            
-            <li><a href="/posts/its-been-awhile/index.html">File('posts/its-been-awhile.md', src_dir='/home/mike/projects/blog-mkdocs/docs', dest_dir='/home/mike/projects/blog-mkdocs/site', use_directory_urls=True, dest_uri='posts/its-been-awhile/index.html', inclusion=InclusionLevel.INCLUDED)</a> </li>
-            
-            <li><a href="/posts/juneteenth/index.html">File('posts/juneteenth.md', src_dir='/home/mike/projects/blog-mkdocs/docs', dest_dir='/home/mike/projects/blog-mkdocs/site', use_directory_urls=True, dest_uri='posts/juneteenth/index.html', inclusion=InclusionLevel.INCLUDED)</a> </li>
-            
-            <li><a href="/posts/new-no-code-tutorial/index.html">File('posts/new-no-code-tutorial.md', src_dir='/home/mike/projects/blog-mkdocs/docs', dest_dir='/home/mike/projects/blog-mkdocs/site', use_directory_urls=True, dest_uri='posts/new-no-code-tutorial/index.html', inclusion=InclusionLevel.INCLUDED)</a> </li>
-            
-            <li><a href="/posts/new-site-launch/index.html">File('posts/new-site-launch.md', src_dir='/home/mike/projects/blog-mkdocs/docs', dest_dir='/home/mike/projects/blog-mkdocs/site', use_directory_urls=True, dest_uri='posts/new-site-launch/index.html', inclusion=InclusionLevel.INCLUDED)</a> </li>
-            
-            <li><a href="/posts/pkm-redux/index.html">File('posts/pkm-redux.md', src_dir='/home/mike/projects/blog-mkdocs/docs', dest_dir='/home/mike/projects/blog-mkdocs/site', use_directory_urls=True, dest_uri='posts/pkm-redux/index.html', inclusion=InclusionLevel.INCLUDED)</a> </li>
-            
-            <li><a href="/posts/something-different/index.html">File('posts/something-different.md', src_dir='/home/mike/projects/blog-mkdocs/docs', dest_dir='/home/mike/projects/blog-mkdocs/site', use_directory_urls=True, dest_uri='posts/something-different/index.html', inclusion=InclusionLevel.INCLUDED)</a> </li>
-            
-            <li><a href="/posts/terraform-backend-with-cloudformation/index.html">File('posts/terraform-backend-with-cloudformation.md', src_dir='/home/mike/projects/blog-mkdocs/docs', dest_dir='/home/mike/projects/blog-mkdocs/site', use_directory_urls=True, dest_uri='posts/terraform-backend-with-cloudformation/index.html', inclusion=InclusionLevel.INCLUDED)</a> </li>
-            
-            <li><a href="/posts/the-verdict-is-in/index.html">File('posts/the-verdict-is-in.md', src_dir='/home/mike/projects/blog-mkdocs/docs', dest_dir='/home/mike/projects/blog-mkdocs/site', use_directory_urls=True, dest_uri='posts/the-verdict-is-in/index.html', inclusion=InclusionLevel.INCLUDED)</a> </li>
-            
-            <li><a href="/posts/welp-goals-are-hard/index.html">File('posts/welp-goals-are-hard.md', src_dir='/home/mike/projects/blog-mkdocs/docs', dest_dir='/home/mike/projects/blog-mkdocs/site', use_directory_urls=True, dest_uri='posts/welp-goals-are-hard/index.html', inclusion=InclusionLevel.INCLUDED)</a> </li>
-            
-            <li><a href="/posts/what-i-use/index.html">File('posts/what-i-use.md', src_dir='/home/mike/projects/blog-mkdocs/docs', dest_dir='/home/mike/projects/blog-mkdocs/site', use_directory_urls=True, dest_uri='posts/what-i-use/index.html', inclusion=InclusionLevel.INCLUDED)</a> </li>
-            
-        </ul>
-    </article>
-</div>
+<section id="mkdocs-terminal-after-content">
+    
+</section>
 
             </main>
-
-            
-            
-
-            
-            
         </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+            
+            <p class="text-center text-muted">Mike Vanbuskirk</p>
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
 
-            <script>var base_url = '..';</script>
-            <script src="../assets/js/jquery-3.3.1.slim.min.js""></script>
-            <script src="../assets/js/bootstrap.bundle.min.js""></script>
-            <script src="../assets/js/main.min.js""></script>
-                <script src="../search/main.js" defer></script>
+    
+    
+    
+</body>
 
-    </body>
+</html><script>var currentPage = 0
+const lastComponent = window.location.href.split("/").slice(-1).pop()
 
-</html>
+if (lastComponent && lastComponent.slice(0, 7) == "#blog-p") {
+  const page = parseInt(lastComponent.slice(7))
+  if (page) {
+    currentPage = page - 1
+  }
+}
+
+function scrollToTop() {
+  setTimeout(function () {
+    window.scrollTo(0, 0);
+  }, 100);
+}
+
+const onButtonClick = (ele) => {
+  var current = pagination.getElementsByClassName("active");
+  if (current.length) {
+    current[0].className = current[0].className.replace(
+      " active", ""
+    );
+  }
+  ele.className += " active";
+
+  // Togglg visibility of pages
+  const destPage = parseInt(ele.textContent)
+  var pages = document.getElementsByClassName("page")
+  if (destPage && pages.length) {
+    for (var j = 0; j < pages.length; j++) {
+      const pageId = parseInt(pages[j].id.replace("page", ""))
+      if (pageId != destPage) {
+        // This is not the destination page
+        if (!pages[j].className.includes("blog-hidden")) {
+          pages[j].className += " blog-hidden"
+        }
+      } else {
+        // This is the destination page
+        pages[j].className = pages[j].className.replace(" blog-hidden", "")
+      }
+    }
+    scrollToTop();
+  }
+};
+
+var pagination = document.getElementById("blog-pagination");
+if (pagination) {
+  var links = pagination.getElementsByClassName("page-number");
+  if (links.length) {
+    for (var i = 0; i < links.length; i++) {
+      // Toggle pagination highlight
+      links[i].addEventListener("click", function () {
+        onButtonClick(this);
+      });
+    }
+    links[currentPage].className += " active"
+    onButtonClick(links[currentPage]);
+  }
+}
+</script>

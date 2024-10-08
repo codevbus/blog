@@ -1,4 +1,7 @@
 ---
 title: posts
-template: posts.html
 ---
+
+# posts
+
+{{ blog_content }}
