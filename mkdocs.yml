@@ -3,7 +3,7 @@ site_name: Mike Vanbuskirk
 copyright: Mike Vanbuskirk
 nav:
   - Home: index.md 
-  - Blog: posts/index.md
+  - Blog: blog.md
   - About: about.md
   - Projects: projects.md
   - Publications: publications.md
