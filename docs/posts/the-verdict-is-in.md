@@ -1,6 +1,6 @@
 ---
 title: "the verdict is in: remote work ftw"
-publishDate: 2018-05-11
+date: 2018-05-11
 author: Mike Vanbuskirk
 slug: "the-verdict-is-in-remote-work-ftw"
 categories: 

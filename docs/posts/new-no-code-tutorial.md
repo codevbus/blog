@@ -1,7 +1,7 @@
 ---
 title: "New No Code Tutorial Posted"
 author: Mike Vanbuskirk
-publishDate: 2020-08-03
+date: 2020-08-03
 slug: "new-no-code-tutorial"
 tags: 
   - no-code

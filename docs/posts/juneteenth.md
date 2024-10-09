@@ -1,7 +1,7 @@
 ---
 title: "juneteenth"
 author: Mike Vanbuskirk
-publishDate: 2020-06-19
+date: 2020-06-19
 slug: "juneteenth"
 tags: 
   - humanity

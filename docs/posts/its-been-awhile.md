@@ -1,7 +1,7 @@
 ---
 title: "It's Been Awhile"
 author: Mike Vanbuskirk
-publishDate: 2021-01-19
+date: 2021-01-19
 slug: "its-been-awhile"
 tags: 
   - no-code

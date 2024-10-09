@@ -1,7 +1,7 @@
 ---
 title: "DevSecOps: Add Docker Image Scanning To Your CI/CD Pipeline"
 author: Mike Vanbuskirk
-publishDate: 2022-01-10
+date: 2022-01-10
 slug: "devsecops-add-docker-image-scanning-to-your-cicd-pipeline"
 tags: 
   - devsecops

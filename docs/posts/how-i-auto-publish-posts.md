@@ -1,7 +1,7 @@
 ---
 title: "how I auto publish posts"
 author: Mike Vanbuskirk
-publishDate: 2020-03-18
+date: 2020-03-18
 slug: "how-i-auto-publish-posts"
 tags: 
   - blogging
@@ -35,19 +35,19 @@ If you want to duplicate this functionality, you will need:
 The first thing I did was generate a unique build hook in my "Site Settings" in the Netlify admin UI:
 
 <figure>
-  <img src="/images/netlify_settings.png" alt="Netlify site settings">
+  <img src="../img/netlify_settings.png" alt="Netlify site settings">
 </figure>
 
 ...went to "Build & deploy":
 
 <figure>
-  <img src="/images/netlify_build_and_deploy.png" alt="Netlify build and deploy settings">
+  <img src="../img/netlify_build_and_deploy.png" alt="Netlify build and deploy settings">
 </figure>
 
 ...and finally added a "Build hook":
 
 <figure>
-  <img src="/images/netlify_build_hooks.png" alt="Netlify build hooks">
+  <img src="../img/netlify_build_hooks.png" alt="Netlify build hooks">
 </figure>
 
 Once added, the build hook will be a Netlify API URL, with a unique alphanumeric identifier. Calls to this URL will trigger a site rebuild on Netlify. Now I can input this URL into Github Actions.
@@ -98,13 +98,13 @@ I want to avoid exposing my build hook id publicly, as that means anyone could t
 First, I go to repo "Settings":
 
 <figure>
-  <img src="/images/github_settings.png" alt="GitHub repository menu">
+  <img src="../img/github_settings.png" alt="GitHub repository menu">
 </figure>
 
 ...then "Secrets":
 
 <figure>
-  <img src="/images/github_secrets.png" alt="GitHub secrets">
+  <img src="../img/github_secrets.png" alt="GitHub secrets">
 </figure>
 
 I clicked "Add a new secret", named it "NETLIFY\_HOOK", and populated the value with the URL id. Now, whenever I want to have that secret available in a config, without revealing it, I can interpolate it with the following syntax:

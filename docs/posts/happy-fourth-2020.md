@@ -1,7 +1,7 @@
 ---
 title: "Happy Fourth 2020"
 author: Mike Vanbuskirk
-publishDate: 2020-07-04
+date: 2020-07-04
 slug: "happy-fourth-2020"
 tags: 
   - holiday

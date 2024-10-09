@@ -1,7 +1,7 @@
 ---
 title: something different
 author: Mike Vanbuskirk
-publishDate: 2020-06-05
+date: 2020-06-05
 slug: "something-different"
 tags: 
   - humanity

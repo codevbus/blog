@@ -56,7 +56,8 @@
 
 
     
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/default.min.css" rel="stylesheet">  
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/tokyo-night-dark.min.css" rel="stylesheet"> 
+    <link href="/overrides/extra.css" rel="stylesheet">  
     
     
 
@@ -71,7 +72,7 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/languages/python.min.js"></script>
     
-    <script src="../../docs/overrides/highlight.js"></script>
+    <script src="/overrides/highlight.js"></script>
     
 
     
@@ -449,12 +450,11 @@ that enables users to generate mock event payloads for local development and tes
 <p>For the purposes of this article, we'll generate a mock event from Cloudwatch Scheduled Events.
 These events function similar to the Linux cron system, and fire on pre-defined schedule values.</p>
 <p>Run the following command in the working directory of your repo:</p>
-<pre><code>sam local generate-event schedule &gt; event.json
-</code></pre>
+<p><code>sam local generate-event schedule &gt; event.json</code></p>
 <p>The output is saved in the <code>event.json</code> file, so that it can be re-used for function invocation as
 needed.</p>
 <p>At this point, this is what the folder structure of my project repo looks like:</p>
-<pre><code>get-active-ec2-instances
+<pre><code class="language-bash">get-active-ec2-instances
 |-- README.md
 |-- event.json
 |-- getinstances
@@ -469,8 +469,7 @@ the Lambda function.</p>
 <p>My favorite feature of the sam tool is the ability to invoke functions locally. No more uploading
 functions to AWS and testing them live to see if they work correctly.</p>
 <p>Run the following command in the working directory of your repo:</p>
-<pre><code>sam local invoke &quot;GetInstances&quot; -e event.json
-</code></pre>
+<p><code>sam local invoke "GetInstances" -e event.json</code></p>
 <p>If this is your first invocation with this particular runtime, the tool will take some time to
 download the Docker image from the remote repo. After the tool reports the request ID, and
 invocation billing data, the output of your function will be provided(if it generates readable

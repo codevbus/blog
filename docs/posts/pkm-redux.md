@@ -1,7 +1,7 @@
 ---
 title: "pkm redux"
 author: Mike Vanbuskirk
-publishDate: 2020-05-29
+date: 2020-05-29
 slug: "pkm-redux"
 tags: 
   - pkm

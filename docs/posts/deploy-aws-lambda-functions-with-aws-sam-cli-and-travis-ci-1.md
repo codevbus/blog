@@ -1,7 +1,7 @@
 ---
 title: "deploy aws lambda functions with aws-sam-cli and travis-ci: part 1"
 author: Mike Vanbuskirk
-publishDate: 2018-05-22
+date: 2018-05-22
 slug: "deploy-aws-lambda-functions-with-aws-sam-cli-and-travis-ci-1"
 categories: 
   - how-to

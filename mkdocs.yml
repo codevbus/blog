@@ -9,11 +9,13 @@ nav:
   - Publications: publications.md
 theme:
   name: terminal
+  favicon: /img/favicon.ico
 markdown_extensions:
   - pymdownx.highlight:
       use_pygments: false
 plugins:
   - blogging:
+      time_format: "%Y-%m-%d"
       dirs:
         - posts
 

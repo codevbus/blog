@@ -1,7 +1,7 @@
 ---
 title: "In Defense of DevOps"
 author: Mike Vanbuskirk
-publishDate: 2022-08-23
+date: 2022-08-23
 slug: "in-defense-of-devops"
 tags: 
   - devsecops
@@ -20,15 +20,11 @@ I'd argue it is more important than ever before. Software delivery is an increas
 
 ## When Did We Get So Precious About Development Work? 
 
-<figure>
-  <img src="/images/ben_kehoe_tweet.png" alt="Ben Kehoe's tweet about the 'new kingmakers theme' and developers.">
-</figure>
+![Ben Kehoe Tweet](../img/ben_kehoe_tweet.png)
 
 Devs saying that they shouldn't have to do ops or have any concern for the underlying infrastructure sounds like a familiar refrain... where have we all heard that before?
 
-<figure>
-  <img src="/images/allspaw_hammond_slide.png" alt="Allspaw Hammond Slide">
-</figure>
+![Allspaw Hammond Slide](../img/allspaw_hammond_slide.png)
 
 Look familiar? It should.
 

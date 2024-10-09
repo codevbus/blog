@@ -1,7 +1,7 @@
 ---
 title: "Welp, Goals Are Hard"
 author: Mike Vanbuskirk
-publishDate: 2021-02-22
+date: 2021-02-22
 slug: "welp-goals-are-hard"
 tags: 
   - goals

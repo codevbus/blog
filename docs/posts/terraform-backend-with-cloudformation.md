@@ -1,6 +1,6 @@
 ---
 title: "deploy a terraform remote state backend with cloudformation"
-publishDate: 2017-12-21
+date: 2017-12-21
 slug: "deploy-a-terraform-remote-state-backend-with-cloudformation"
 author: Mike vanbuskirk
 categories: 
@@ -45,7 +45,7 @@ I've already created the basic CloudFormation template to get the infrastructure
 want to take a shortcut to get up and running, simply click the "Launch Stack" button below and
 populate your variables as needed.
 
-[![Launch CloudFormation Stack](/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?/stacks/new?stackName=terraform-backend&templateURL=https://s3.us-east-2.amazonaws.com/sysengcooking-blog-cf-templates/tf-backend.yaml)
+[![Launch CloudFormation Stack](../img/cloudformation-launch-stack.png)](https://console.aws.amazon.com/cloudformation/home?/stacks/new?stackName=terraform-backend&templateURL=https://s3.us-east-2.amazonaws.com/sysengcooking-blog-cf-templates/tf-backend.yaml)
 
 ```yaml
 Parameters:

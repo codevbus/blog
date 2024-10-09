@@ -1,7 +1,7 @@
 ---
 title: New Site Launch
 author: Mike Vanbuskirk
-publishDate: 2020-07-23
+date: 2020-07-23
 slug: "new-site-launch"
 tags: 
   - no-code
