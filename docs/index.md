@@ -6,7 +6,7 @@
 
 visual: [bento.me](https://bento.me/mikevanbuskirk)
 
-I engage in opportunities for technical content creation and consulting.
+I engage in opportunities for DevOps/SRE consulting.
 
 Infrequent writings on the blog.
 
