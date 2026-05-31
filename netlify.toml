@@ -3,9 +3,9 @@
   pip3 install -q poetry &&
   poetry config virtualenvs.in-project true &&
   poetry install -v &&
-  mkdocs build -d site
+  poetry run mkdocs build -d site
   """
   publish = "site"
 
 [build.environment]
-  PYTHON_VERSION = "3.8"
+  PYTHON_VERSION = "3.12"
