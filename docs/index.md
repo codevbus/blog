@@ -4,8 +4,6 @@
 
 👆some of the places you can find me
 
-visual: [bento.me](https://bento.me/mikevanbuskirk)
-
 I engage in opportunities for DevOps/SRE consulting.
 
 Infrequent writings on the blog.
